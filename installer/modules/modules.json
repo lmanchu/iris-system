@@ -1,0 +1,178 @@
+{
+  "version": "1.5.0",
+  "modules": {
+    "iris-notifier": {
+      "name": "Iris Notifier",
+      "description": "macOS notification system integration",
+      "type": "core",
+      "install_path": "~/iris-notifier.js",
+      "files": [
+        {
+          "source": "modules/iris-notifier/iris-notifier.js",
+          "destination": "~/iris-notifier.js"
+        }
+      ],
+      "dependencies": {
+        "node": ">=16.0.0"
+      },
+      "optional": false
+    },
+    "daily-brief": {
+      "name": "Daily Brief Generator",
+      "description": "Morning briefing automation",
+      "type": "automation",
+      "install_path": "~/daily-brief.js",
+      "files": [
+        {
+          "source": "modules/daily-brief/daily-brief.js",
+          "destination": "~/daily-brief.js"
+        },
+        {
+          "source": "modules/daily-brief/.env.template",
+          "destination": "~/.daily-brief.env"
+        }
+      ],
+      "dependencies": {
+        "node": ">=16.0.0",
+        "npm_packages": ["dotenv", "node-fetch", "openai"]
+      },
+      "launchagent": {
+        "label": "com.lman.daily-brief",
+        "schedule": [{"hour": 7, "minute": 0}],
+        "working_directory": "~",
+        "program": "/usr/local/bin/node",
+        "arguments": ["daily-brief.js"]
+      },
+      "env_vars": {
+        "OPENAI_API_KEY": "Required - OpenAI API key",
+        "GMAIL_EMAIL": "Optional - Your Gmail address",
+        "SLACK_WEBHOOK": "Optional - Slack webhook URL"
+      },
+      "optional": true
+    },
+    "twitter-bot": {
+      "name": "Twitter Auto-Engagement",
+      "description": "Automated Twitter engagement bot",
+      "type": "automation",
+      "install_path": "~/twitter-auto-engagement",
+      "files": [
+        {
+          "source": "modules/twitter-bot/twitter-bot.js",
+          "destination": "~/twitter-auto-engagement/twitter-bot.js"
+        },
+        {
+          "source": "modules/twitter-bot/package.json",
+          "destination": "~/twitter-auto-engagement/package.json"
+        },
+        {
+          "source": "modules/twitter-bot/.env.template",
+          "destination": "~/twitter-auto-engagement/.env"
+        }
+      ],
+      "dependencies": {
+        "node": ">=16.0.0",
+        "npm_packages": ["puppeteer", "dotenv"]
+      },
+      "launchagent": {
+        "label": "com.lman.twitter-bot",
+        "schedule": [
+          {"hour": 2, "minute": 0},
+          {"hour": 4, "minute": 0},
+          {"hour": 6, "minute": 0}
+        ],
+        "working_directory": "~/twitter-auto-engagement",
+        "program": "/usr/local/bin/node",
+        "arguments": ["twitter-bot.js"]
+      },
+      "env_vars": {
+        "TWITTER_EMAIL": "Required - Twitter email",
+        "TWITTER_PASSWORD": "Required - Twitter password"
+      },
+      "optional": true
+    },
+    "dayflow-intelligence": {
+      "name": "Dayflow Intelligence",
+      "description": "Dayflow journal sync and analysis",
+      "type": "automation",
+      "install_path": "~/dayflow-intelligence.js",
+      "files": [
+        {
+          "source": "modules/dayflow-intelligence/dayflow-intelligence.js",
+          "destination": "~/dayflow-intelligence.js"
+        },
+        {
+          "source": "modules/dayflow-intelligence/.env.template",
+          "destination": "~/.dayflow-intelligence.env"
+        }
+      ],
+      "dependencies": {
+        "node": ">=16.0.0",
+        "npm_packages": ["sqlite3", "dotenv"]
+      },
+      "launchagent": {
+        "label": "com.lman.dayflow-intelligence",
+        "schedule": [{"day": 2, "hour": 1, "minute": 0}],
+        "working_directory": "~",
+        "program": "/usr/local/bin/node",
+        "arguments": ["dayflow-intelligence.js"]
+      },
+      "env_vars": {
+        "DAYFLOW_DB_PATH": "Required - Path to Dayflow SQLite database",
+        "PKM_VAULT_PATH": "Required - Path to PKM Vault"
+      },
+      "optional": true
+    },
+    "pkm-intelligence": {
+      "name": "PKM Intelligence",
+      "description": "Personal Knowledge Management automation",
+      "type": "automation",
+      "install_path": "~/pkm-intelligence.js",
+      "files": [
+        {
+          "source": "modules/pkm-intelligence/pkm-intelligence.js",
+          "destination": "~/pkm-intelligence.js"
+        },
+        {
+          "source": "modules/pkm-intelligence/.env.template",
+          "destination": "~/.pkm-intelligence.env"
+        }
+      ],
+      "dependencies": {
+        "node": ">=16.0.0",
+        "npm_packages": ["dotenv"]
+      },
+      "launchagent": {
+        "label": "com.lman.pkm-intelligence",
+        "schedule": [{"hour": 2, "minute": 0}],
+        "working_directory": "~",
+        "program": "/usr/local/bin/node",
+        "arguments": ["pkm-intelligence.js"]
+      },
+      "env_vars": {
+        "PKM_VAULT_PATH": "Required - Path to PKM Vault"
+      },
+      "optional": true
+    },
+    "iris-dashboard": {
+      "name": "Iris Dashboard",
+      "description": "Unified control panel for all automation",
+      "type": "dashboard",
+      "install_path": "~/iris-system/dashboard",
+      "files": [
+        {
+          "source": "dashboard",
+          "destination": "~/iris-system/dashboard",
+          "type": "directory"
+        }
+      ],
+      "dependencies": {
+        "node": ">=16.0.0",
+        "npm_packages": ["express", "ws", "plist", "node-cron", "dotenv"]
+      },
+      "post_install": [
+        "cd ~/iris-system/dashboard && npm install"
+      ],
+      "optional": true
+    }
+  }
+}
