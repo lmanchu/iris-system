@@ -5,6 +5,146 @@ All notable changes to the Iris System will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2025-11-01
+
+### 🎁 Major Release: Distributable Installation System
+
+This is a **milestone release** that transforms Iris from a personal system to a distributable package. Anyone with Claude Code and a Mac can now install Iris with a single command.
+
+#### Added
+
+##### 📦 One-Click Installer (`iris-install.sh`)
+- **Production-ready bash installer** (410+ lines)
+  - Beautiful CLI UI with colors, progress bars, and icons
+  - Modular function design
+  - Comprehensive system requirements check
+  - Interactive configuration flow
+  - Error handling and logging
+  - Progress visualization
+
+- **System Checks**
+  - macOS version detection
+  - Claude Code installation verification
+  - Node.js/npm validation
+  - Python 3 detection
+  - Git availability check
+
+- **MCP Server Auto-Installation**
+  - Gmail MCP
+  - Slack MCP
+  - Google Calendar MCP
+  - Gemini AI MCP
+  - BrowserOS MCP
+  - One-command setup for all servers
+
+##### 🔧 Module System
+- **Module Registry** (`modules.json`)
+  - Centralized module metadata
+  - Version tracking
+  - Dependency management
+  - LaunchAgent configurations
+  - Environment variable definitions
+
+- **Module Manager** (`lib/module-manager.sh`)
+  - Module installation engine
+  - Dependency resolution
+  - LaunchAgent auto-creation
+  - Environment file setup
+  - Interactive module selection
+
+- **Available Modules**
+  - `iris-notifier` - macOS notification system (core)
+  - `daily-brief` - Morning briefing automation
+  - `twitter-bot` - Twitter auto-engagement
+  - `dayflow-intelligence` - Journal sync
+  - `pkm-intelligence` - Knowledge base automation
+  - `iris-dashboard` - Control panel
+
+##### 📝 Templates & Documentation
+- **Memory Template** (`iris-memory.template.md`)
+  - Variable substitution support
+  - Includes Computer Use capabilities
+  - Customizable for different setups
+
+- **Slash Command Template** (`iris.command.template`)
+  - Standard initialization flow
+  - Memory file loading
+
+- **Installation Guide** (`installer/README.md`)
+  - One-liner installation
+  - Manual installation steps
+  - Troubleshooting section
+  - Update & uninstall instructions
+
+#### Architecture
+
+```
+installer/
+├── iris-install.sh          # Main installer (executable)
+├── README.md                 # Complete documentation
+├── lib/
+│   └── module-manager.sh    # Module management functions
+├── modules/
+│   ├── modules.json         # Module registry
+│   └── iris-notifier/       # Example module
+│       └── iris-notifier.js
+├── mcp-configs/              # MCP server configurations
+└── templates/
+    ├── iris-memory.template.md
+    └── iris.command.template
+```
+
+#### Installation
+
+```bash
+# One-liner (when pushed to main)
+curl -fsSL https://raw.githubusercontent.com/lmanchu/iris-system/main/installer/iris-install.sh | bash
+
+# Or manual
+git clone https://github.com/lmanchu/iris-system.git
+cd iris-system/installer
+./iris-install.sh
+```
+
+#### Features
+
+- ✅ **Distribution Ready** - Anyone can install Iris
+- ✅ **Reproducible** - Consistent setup across machines
+- ✅ **Modular** - Choose which components to install
+- ✅ **Maintainable** - Centralized module management
+- ✅ **Scalable** - Easy to add new modules
+- ✅ **User-Friendly** - Interactive CLI experience
+- ✅ **Comprehensive** - Includes all necessary components
+- ✅ **Documented** - Complete installation guide
+
+#### Impact & Significance
+
+**Before v2.0.0:** Iris was a personal system requiring manual setup
+
+**After v2.0.0:** Iris is a distributable package installable in minutes
+
+This enables:
+- **Community Growth** - Others can use Iris
+- **Collaboration** - Standardized setup for teams
+- **Maintenance** - Easier updates and bug fixes
+- **Evolution** - Platform for future enhancements
+- **Testing** - Consistent environments for validation
+
+**Breaking Change:** This is a major version bump (1.5.0 → 2.0.0) because Iris is now fundamentally different - it's no longer just a collection of scripts, but a complete installable system.
+
+#### Files Added
+- `installer/iris-install.sh` - Main installer script
+- `installer/README.md` - Installation documentation
+- `installer/lib/module-manager.sh` - Module management
+- `installer/modules/modules.json` - Module registry
+- `installer/modules/iris-notifier/iris-notifier.js` - Notifier module
+- `installer/templates/iris-memory.template.md` - Memory template
+- `installer/templates/iris.command.template` - Command template
+
+Total: **1,500+ lines of new code**
+
+---
+
 ## [1.5.0] - 2025-11-01
 
 ### 🚀 Major Feature: Computer Use Integration
