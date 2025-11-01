@@ -78,11 +78,95 @@ The **MAGI System** (inspired by Evangelion) consists of three AI workstations, 
 
 ### Development Projects
 - ✅ **[Iris Dashboard & Control Panel](./dashboard/)** - Web-based automation task management system
+- ✅ **[Iris Vision System](./vision/)** - Proactive visual understanding and assistance (v2.1.0)
 - ✅ **[Iris EPUB Reader](https://github.com/lmanchu/iris-epub-reader)** - EPUB reader with TTS
 - ✅ **[Iris Immersive Translate](https://github.com/lmanchu/iris-immersive-translate)** - Local AI translation Chrome Extension
 - ✅ **Iris Notifier** - macOS native notification system
 - ✅ **Daily Brief** - Automated daily briefing system
 - ✅ **Twitter Bot** - Social media automation
+
+---
+
+## 👁️ Iris Vision System (NEW in v2.1.0)
+
+**讓 Iris 看懂你的螢幕，主動提供幫助**
+
+Iris Vision System enables visual understanding of your screen to proactively detect errors, understand your workflow, and offer contextual assistance.
+
+### What It Does
+
+- 📸 **Automatic Screenshot Capture** - Periodically captures your screen
+- 👀 **Visual Understanding** - Uses Claude's native vision to analyze what you're doing
+- 🚨 **Error Detection** - Identifies error messages and problems automatically
+- 💡 **Proactive Assistance** - Offers help before you ask
+- 🔄 **Pattern Learning** - Understands your workflow and suggests automation
+- 🔔 **Smart Notifications** - Alerts you when help is needed
+
+### Components
+
+1. **vision-capture.js** - Screenshot capture module
+   - Full screen, active window, region capture
+   - Automatic cleanup of old screenshots
+   - BrowserOS integration for browser capture
+
+2. **vision-analyzer.js** - Visual analysis engine
+   - Scene identification (app, activity, focus)
+   - Error detection and categorization
+   - Workflow analysis
+   - Multiple analysis modes (assistant, debug, automation, security)
+
+3. **vision-assistant.js** - Proactive assistance system
+   - Continuous monitoring with customizable intervals
+   - Context memory for pattern detection
+   - Automatic help signal detection
+   - Native macOS notification integration
+
+### Quick Start
+
+```bash
+cd vision
+
+# Capture a screenshot
+node vision-capture.js fullscreen
+
+# Analyze current screen
+node vision-analyzer.js analyze
+
+# Start proactive assistant (60s interval)
+node vision-assistant.js start
+
+# Start in debug mode (30s interval)
+node vision-assistant.js start 30000 debug
+```
+
+### Use Cases
+
+**Debug Assistant Mode:**
+```bash
+node vision-assistant.js start 30000 debug
+```
+- Detects error messages automatically
+- Analyzes error context
+- Provides solution suggestions
+- Sends notifications when errors appear
+
+**Automation Discovery Mode:**
+```bash
+node vision-assistant.js start 60000 automation
+```
+- Identifies repetitive tasks
+- Suggests automation opportunities
+- Provides script templates
+
+**Workflow Monitoring:**
+```bash
+node vision-analyzer.js monitor 60000
+```
+- Tracks application usage
+- Monitors task switching patterns
+- Records error frequencies
+
+See [Vision System Documentation](./vision/README.md) for details.
 
 ---
 
@@ -103,6 +187,17 @@ iris-system/
 │   │   ├── control-panel.html   # Control panel
 │   │   └── *.js                 # Frontend logic
 │   └── README.md                # Dashboard documentation
+├── vision/                      # 👁️ Iris Vision System (v2.1.0)
+│   ├── vision-capture.js        # Screenshot capture module
+│   ├── vision-analyzer.js       # Visual analysis engine
+│   ├── vision-assistant.js      # Proactive assistance system
+│   ├── config/                  # Configuration files
+│   └── README.md                # Vision system documentation
+├── installer/                   # 📦 Installation system (v2.0.0)
+│   ├── iris-install.sh          # Main installer script
+│   ├── modules/                 # Module definitions
+│   ├── lib/                     # Helper libraries
+│   └── templates/               # Installation templates
 ├── docs/
 │   ├── magi-system/
 │   │   ├── architecture.md      # MAGI System complete architecture
