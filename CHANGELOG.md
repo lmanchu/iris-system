@@ -5,6 +5,109 @@ All notable changes to the Iris System will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0] - 2025-11-01
+
+### 🚀 Major Feature: Computer Use Integration
+
+This is a **groundbreaking release** that enables Iris to interact with web browsers programmatically, marking a significant leap in automation capabilities.
+
+#### Added
+
+##### 💻 Computer Use Capabilities
+- **BrowserOS Integration** - Full browser automation through MCP
+  - 27 browser automation tools via BrowserOS MCP Server
+  - Real-time browser control (tab management, navigation, content extraction)
+  - Visual feedback through screenshots
+  - JavaScript execution in browser context
+  - Element interaction (click, type, scroll, clear)
+  - Network request and console monitoring
+  - Coordinate-based clicking and keyboard control
+  - Bookmark and history management
+
+- **Automated Email Sending** - Multiple approaches
+  - Direct email sending via Gmail MCP API
+  - Browser-based email composition through Gmail Web UI
+  - Form filling and submission automation
+  - Successfully tested: Sent test emails to Jeffrey@irisgo.ai and arnold@irisgo.ai
+
+- **Web Form Automation**
+  - Automatic form field detection and filling
+  - Button and link interaction
+  - Input validation and submission
+  - Multi-step form workflows
+
+- **Content Extraction & Analysis**
+  - Extract text content from web pages
+  - Extract text with links (structured data)
+  - Full page or visible viewport extraction
+  - Section-specific extraction (main, nav, footer, header, article, aside)
+
+##### 🧠 Enhanced Memory System
+- Updated `iris-memory.md` with Computer Use capabilities documentation
+- Comprehensive integration notes and usage examples
+- Real-world validation examples
+
+#### Technical Implementation
+
+**BrowserOS MCP Server:**
+- HTTP transport at `http://127.0.0.1:9100/mcp`
+- Installation: `/Applications/BrowserOS.app`
+- Configuration: `claude mcp add --transport http browseros http://127.0.0.1:9100/mcp`
+
+**Gmail MCP Integration:**
+- Direct API access for email operations
+- Supports attachments, CC/BCC, HTML content
+- Thread management and replies
+
+**Available Tools:**
+```
+mcp__browseros__browser_open_tab          Open new browser tabs
+mcp__browseros__browser_navigate          Navigate to URLs
+mcp__browseros__browser_click_element     Click DOM elements
+mcp__browseros__browser_type_text         Type into input fields
+mcp__browseros__browser_get_screenshot    Capture screenshots
+mcp__browseros__browser_execute_javascript Execute custom JS
+mcp__browseros__browser_get_interactive_elements Get clickable/typeable elements
+mcp__browseros__browser_get_page_content  Extract page content
+mcp__browseros__browser_scroll_*          Scroll operations
+mcp__browseros__browser_send_keys         Send keyboard keys
+... and 17 more tools
+```
+
+#### Impact & Significance
+
+This release transforms Iris from a script-based automation system to an AI agent capable of:
+- **Human-like browser interaction** - Navigate, click, type, extract data
+- **Visual understanding** - Take screenshots and analyze page layouts
+- **Complex workflows** - Multi-step browser-based tasks
+- **Universal web automation** - Interact with any web service
+
+**Before v1.5.0:** Limited to API-based automation
+**After v1.5.0:** Can automate ANY web-based task through browser interaction
+
+#### Use Cases Enabled
+- Automated form submissions
+- Data extraction from websites without APIs
+- Web-based testing and monitoring
+- Social media automation beyond API limits
+- E-commerce operations (ordering, tracking, etc.)
+- Research and information gathering
+- Cross-platform integrations via web interfaces
+
+#### Validation
+- ✅ Successfully opened Gmail via browser
+- ✅ Composed and sent email through web UI
+- ✅ Filled recipient, subject, and body fields
+- ✅ Clicked send button programmatically
+- ✅ Email delivered successfully (ID: 19a3f4a774b06472)
+
+#### Documentation
+- Updated memory file with Computer Use section
+- Integration notes in `iris-memory.md:137-150`
+- Real-world examples and validation records
+
+---
+
 ## [1.1.0] - 2025-11-01
 
 ### Added
