@@ -77,6 +77,7 @@ The **MAGI System** (inspired by Evangelion) consists of three AI workstations, 
 - ✅ Inbox Archiver (05:00)
 
 ### Development Projects
+- ✅ **[Iris Dashboard & Control Panel](./dashboard/)** - Web-based automation task management system
 - ✅ **[Iris EPUB Reader](https://github.com/lmanchu/iris-epub-reader)** - EPUB reader with TTS
 - ✅ **[Iris Immersive Translate](https://github.com/lmanchu/iris-immersive-translate)** - Local AI translation Chrome Extension
 - ✅ **Iris Notifier** - macOS native notification system
@@ -90,6 +91,18 @@ The **MAGI System** (inspired by Evangelion) consists of three AI workstations, 
 ```
 iris-system/
 ├── README.md                    # This file
+├── CHANGELOG.md                 # Version history and changes
+├── dashboard/                   # 🌿 Iris Dashboard & Control Panel
+│   ├── server.js                # Express server + WebSocket
+│   ├── launchagent-control.js   # LaunchAgent management
+│   ├── package.json             # Dependencies
+│   ├── config/
+│   │   └── tasks.json           # Task definitions
+│   ├── public/                  # Frontend UI
+│   │   ├── index.html           # Main dashboard
+│   │   ├── control-panel.html   # Control panel
+│   │   └── *.js                 # Frontend logic
+│   └── README.md                # Dashboard documentation
 ├── docs/
 │   ├── magi-system/
 │   │   ├── architecture.md      # MAGI System complete architecture
@@ -117,6 +130,50 @@ iris-system/
     ├── project-development.md
     └── automation-examples.md
 ```
+
+---
+
+## 🌿 Iris Dashboard & Control Panel (NEW in v1.1.0)
+
+A unified web-based management system for all Iris automation tasks.
+
+### Features
+
+**Dashboard** - Real-time monitoring and status display:
+- 📊 Task statistics (total, running, enabled, uptime)
+- 🖥️ MAGI System status (Melchior, Balthasar, Caspar)
+- ⚙️ Live task status with category filtering
+- 📋 Recent activity log
+- 🔌 WebSocket live updates
+
+**Control Panel** - Schedule management and task control:
+- ⏰ Edit LaunchAgent execution times
+- 🔄 Support for multiple execution times per task
+- ✅ Enable/disable tasks with toggle switches
+- ▶️ Manual task triggering
+- 📄 View logs and file paths
+- 💾 Real-time plist file updates
+
+### Quick Start
+
+1. Navigate to dashboard directory:
+   ```bash
+   cd dashboard
+   npm install
+   ```
+
+2. Start the server:
+   ```bash
+   npm start
+   # or
+   node server.js
+   ```
+
+3. Open in browser:
+   - Dashboard: http://localhost:3030
+   - Control Panel: http://localhost:3030/control-panel.html
+
+See [Dashboard README](./dashboard/README.md) for detailed documentation.
 
 ---
 
@@ -274,6 +331,7 @@ MIT License - See [LICENSE](./LICENSE) file
 ## 🔗 Related Projects
 
 ### Developed by Iris:
+- **[Iris Dashboard & Control Panel](./dashboard/)** - Web-based automation task management (v1.1.0)
 - **[Iris Immersive Translate](https://github.com/lmanchu/iris-immersive-translate)** - Local AI translation Chrome Extension
 - **[Iris EPUB Reader](https://github.com/lmanchu/iris-epub-reader)** - EPUB reader with TTS system
 - More projects coming soon...

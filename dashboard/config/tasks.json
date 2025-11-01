@@ -1,0 +1,152 @@
+{
+  "tasks": [
+    {
+      "id": "daily-brief",
+      "name": "Daily Brief Generator",
+      "description": "Gmail 未讀郵件摘要、Calendar 行程、QQQ 股價、Hacker News",
+      "schedule": "0 7 * * *",
+      "scriptPath": "~/daily-brief.js",
+      "enabled": true,
+      "category": "daily",
+      "icon": "📊",
+      "lastRun": null,
+      "nextRun": null,
+      "status": "idle"
+    },
+    {
+      "id": "inbox-archiver",
+      "name": "Inbox Archiver",
+      "description": "PKM Inbox 整理與歸檔",
+      "schedule": "0 5 * * *",
+      "scriptPath": "~/inbox-archiver.js",
+      "enabled": true,
+      "category": "daily",
+      "icon": "📁",
+      "lastRun": null,
+      "nextRun": null,
+      "status": "idle"
+    },
+    {
+      "id": "meeting-prep",
+      "name": "Meeting Prep Assistant",
+      "description": "提前準備今日會議資料",
+      "schedule": "0 4 * * *",
+      "scriptPath": "~/meeting-prep.js",
+      "enabled": true,
+      "category": "daily",
+      "icon": "📅",
+      "lastRun": null,
+      "nextRun": null,
+      "status": "idle"
+    },
+    {
+      "id": "pkm-intelligence",
+      "name": "PKM Intelligence",
+      "description": "PKM 知識庫智能分析與連結發現",
+      "schedule": "0 2 * * *",
+      "scriptPath": "~/pkm-intelligence.js",
+      "enabled": true,
+      "category": "daily",
+      "icon": "🧠",
+      "lastRun": null,
+      "nextRun": null,
+      "status": "idle"
+    },
+    {
+      "id": "twitter-curator",
+      "name": "Twitter Curator",
+      "description": "Twitter 內容策展與收集",
+      "schedule": "30 23 * * *",
+      "scriptPath": "~/twitter-curator.js",
+      "enabled": true,
+      "category": "daily",
+      "icon": "🐦",
+      "lastRun": null,
+      "nextRun": null,
+      "status": "idle"
+    },
+    {
+      "id": "twitter-engagement-02",
+      "name": "Twitter Auto-Engagement (02:00)",
+      "description": "自動化 Twitter 互動 - 凌晨 2 點",
+      "schedule": "0 2 * * *",
+      "scriptPath": "~/twitter-auto-engagement/run.js",
+      "enabled": true,
+      "category": "social",
+      "icon": "🤖",
+      "lastRun": null,
+      "nextRun": null,
+      "status": "idle"
+    },
+    {
+      "id": "twitter-engagement-04",
+      "name": "Twitter Auto-Engagement (04:00)",
+      "description": "自動化 Twitter 互動 - 凌晨 4 點",
+      "schedule": "0 4 * * *",
+      "scriptPath": "~/twitter-auto-engagement/run.js",
+      "enabled": true,
+      "category": "social",
+      "icon": "🤖",
+      "lastRun": null,
+      "nextRun": null,
+      "status": "idle"
+    },
+    {
+      "id": "twitter-engagement-06",
+      "name": "Twitter Auto-Engagement (06:00)",
+      "description": "自動化 Twitter 互動 - 凌晨 6 點",
+      "schedule": "0 6 * * *",
+      "scriptPath": "~/twitter-auto-engagement/run.js",
+      "enabled": true,
+      "category": "social",
+      "icon": "🤖",
+      "lastRun": null,
+      "nextRun": null,
+      "status": "idle"
+    },
+    {
+      "id": "dayflow-intelligence",
+      "name": "Dayflow Intelligence",
+      "description": "活動數據分析與 Persona 更新（每兩天）",
+      "schedule": "0 1 2,4,6,8,10,12,14,16,18,20,22,24,26,28,30 * *",
+      "scriptPath": "~/dayflow-intelligence.js",
+      "enabled": true,
+      "category": "analytics",
+      "icon": "📊",
+      "lastRun": null,
+      "nextRun": null,
+      "status": "idle"
+    },
+    {
+      "id": "weekly-review",
+      "name": "Weekly Review Generator",
+      "description": "自動生成每週回顧報告",
+      "schedule": "0 3 * * 0",
+      "scriptPath": "~/weekly-review.js",
+      "enabled": true,
+      "category": "weekly",
+      "icon": "📝",
+      "lastRun": null,
+      "nextRun": null,
+      "status": "idle"
+    }
+  ],
+  "categories": {
+    "daily": {
+      "name": "每日任務",
+      "color": "#10b981"
+    },
+    "social": {
+      "name": "社交媒體",
+      "color": "#3b82f6"
+    },
+    "analytics": {
+      "name": "數據分析",
+      "color": "#8b5cf6"
+    },
+    "weekly": {
+      "name": "每週任務",
+      "color": "#f59e0b"
+    }
+  }
+}
