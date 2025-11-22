@@ -1,14 +1,14 @@
-# MAGI System Installation Guide
+# Iris System Installation Guide
 
-**版本**: v2025-11-16
-**生成時間**: 2025-11-15T16:30:05.226Z
-**記憶檔案版本**: 2025-11-15 (v1.9.1 - 硬體規格修正)
+**版本**: v2025-11-23
+**生成時間**: 2025-11-22T16:30:01.361Z
+**記憶檔案版本**: 2025-11-21 (v2.0.0 - Task Queue Watcher 實時協作系統)
 
 ---
 
 ## 📋 系統概述
 
-這是 MAGI System (Iris/Melchior) 的完整安裝指南。此文件由系統每週日半夜自動生成，包含當前所有系統配置、自動化腳本和依賴項的完整快照。
+這是 Iris System (Iris/Melchior) 的完整安裝指南。此文件由系統每週日半夜自動生成，包含當前所有系統配置、自動化腳本和依賴項的完整快照。
 
 ### 系統角色
 
@@ -45,262 +45,430 @@ Model Name: Mac Studio
 
 - **Homebrew**: 套件管理器
 - **Claude Code CLI**: AI 助手整合
-- **Dropbox**: 文件同步（MAGI System 協作核心）
+- **Dropbox**: 文件同步（Iris System 協作核心）
 - **Obsidian**: PKM 系統（可選）
 
 ---
 
 ## 🤖 LaunchAgents 清單
 
-共 42 個定時任務：
+共 70 個定時任務：
 
-### 1. com.lman.appstore-monitor.plist
+### 1. com.lman.action-items-organizer
+
+**檔案**: `com.lman.action-items-organizer.plist`
+**排程**: 每日 23:30
+
+
+### 2. com.lman.appstore-monitor.plist
 
 **檔案**: `com.lman.appstore-monitor.plist`
 **排程**: 每日 20:00
 
 
-### 2. com.lman.chrome-extension-monitor
+### 3. com.lman.chrome-extension-monitor
 
 **檔案**: `com.lman.chrome-extension-monitor.plist`
 **排程**: 每日 21:00
 
 
-### 3. com.lman.daily-investment-evening
+### 4. com.lman.daily-investment-evening
 
 **檔案**: `com.lman.daily-investment-evening.plist`
 **排程**: 每日 17:00
 
 
-### 4. com.lman.daily-investment-morning
+### 5. com.lman.daily-investment-morning
 
 **檔案**: `com.lman.daily-investment-morning.plist`
 **排程**: 每日 5:00
 
 
-### 5. com.lman.dailybrief
+### 6. com.lman.daily-token-report
+
+**檔案**: `com.lman.daily-token-report.plist`
+**排程**: 每日 0:00
+
+
+### 7. com.lman.dailybrief
 
 **檔案**: `com.lman.dailybrief.plist`
 **排程**: 每日 6:30
 
 
-### 6. com.lman.dayflow-archiver
+### 8. com.lman.dayflow-archiver
 
 **檔案**: `com.lman.dayflow-archiver.plist`
 **排程**: 每日 3:00
 
 
-### 7. com.lman.dayflow-intelligence
+### 9. com.lman.dayflow-intelligence
 
 **檔案**: `com.lman.dayflow-intelligence.plist`
 **排程**: 每日 1:00
 
 
-### 8. com.lman.gdocs-sync.plist
+### 10. com.lman.gdocs-sync.plist
 
 **檔案**: `com.lman.gdocs-sync.plist`
 **排程**: 每日 9:00
 
 
-### 9. com.lman.inbox-archiver
+### 11. com.lman.google-docs-auto-sync
+
+**檔案**: `com.lman.google-docs-auto-sync.plist`
+**排程**: 每日 9:00
+
+
+### 12. com.lman.inbox-archiver
 
 **檔案**: `com.lman.inbox-archiver.plist`
 **排程**: 每日 5:00
 
 
-### 10. com.lman.investment-analyst
+### 13. com.lman.investment-analyst
 
 **檔案**: `com.lman.investment-analyst.plist`
 **排程**: Unknown
 
 
-### 11. com.lman.investment-archiver
+### 14. com.lman.investment-archiver
 
 **檔案**: `com.lman.investment-archiver.plist`
 **排程**: 每日 6:00
 
 
-### 12. com.lman.iris-cleanup
+### 15. com.lman.iris-app-monitor
+
+**檔案**: `com.lman.iris-app-monitor.plist`
+**排程**: Unknown
+
+
+### 16. com.lman.iris-cleanup
 
 **檔案**: `com.lman.iris-cleanup.plist`
 **排程**: 每日 3:00
 
 
-### 13. com.lman.iris-pkm-archive
+### 17. com.lman.iris-pkm-archive
 
 **檔案**: `com.lman.iris-pkm-archive.plist`
 **排程**: 每日 23:30
 
 
-### 14. com.lman.iris-vision-daemon
+### 18. com.lman.iris-reminder
+
+**檔案**: `com.lman.iris-reminder.plist`
+**排程**: 每日 9:30
+
+
+### 19. com.lman.iris-snapshot
+
+**檔案**: `com.lman.iris-snapshot.plist`
+**排程**: 每日 0:30
+
+
+### 20. com.lman.iris-sync
+
+**檔案**: `com.lman.iris-sync.plist`
+**排程**: 每日 0:00
+
+
+### 21. com.lman.iris-task-watcher
+
+**檔案**: `com.lman.iris-task-watcher.plist`
+**排程**: Unknown
+
+
+### 22. com.lman.iris-veda-broker
+
+**檔案**: `com.lman.iris-veda-broker.plist`
+**排程**: Unknown
+
+
+### 23. com.lman.iris-vision-daemon
 
 **檔案**: `com.lman.iris-vision-daemon.plist`
 **排程**: Unknown
 
 
-### 15. com.lman.irisgo-docs-sync
+### 24. com.lman.irisgo-docs-sync
 
 **檔案**: `com.lman.irisgo-docs-sync.plist`
 **排程**: 每 72 小時
 
 
-### 16. com.lman.linkedin-curator-09
+### 25. com.lman.linkedin-curator-09
 
 **檔案**: `com.lman.linkedin-curator-09.plist`
 **排程**: 每日 9:00
 
 
-### 17. com.lman.linkedin-curator-17
+### 26. com.lman.linkedin-curator-17
 
 **檔案**: `com.lman.linkedin-curator-17.plist`
 **排程**: 每日 17:00
 
 
-### 18. com.lman.linkedin-curator-post-0
+### 27. com.lman.linkedin-curator-post-0
 
 **檔案**: `com.lman.linkedin-curator-post-0.plist`
 **排程**: 每日 9:30
 
 
-### 19. com.lman.linkedin-curator-post-1
+### 28. com.lman.linkedin-curator-post-1
 
 **檔案**: `com.lman.linkedin-curator-post-1.plist`
 **排程**: 每日 14:45
 
 
-### 20. com.lman.linkedin-curator-post-2
+### 29. com.lman.linkedin-curator-post-2
 
 **檔案**: `com.lman.linkedin-curator-post-2.plist`
 **排程**: 每日 18:20
 
 
-### 21. com.lman.linkedin-curator-reply-0
+### 30. com.lman.linkedin-curator-reply-0
 
 **檔案**: `com.lman.linkedin-curator-reply-0.plist`
 **排程**: 每日 10:15
 
 
-### 22. com.lman.linkedin-curator-reply-1
+### 31. com.lman.linkedin-curator-reply-1
 
 **檔案**: `com.lman.linkedin-curator-reply-1.plist`
 **排程**: 每日 11:45
 
 
-### 23. com.lman.linkedin-curator-reply-2
+### 32. com.lman.linkedin-curator-reply-2
 
 **檔案**: `com.lman.linkedin-curator-reply-2.plist`
 **排程**: 每日 13:20
 
 
-### 24. com.lman.linkedin-curator-reply-3
+### 33. com.lman.linkedin-curator-reply-3
 
 **檔案**: `com.lman.linkedin-curator-reply-3.plist`
 **排程**: 每日 15:30
 
 
-### 25. com.lman.linkedin-curator-reply-4
+### 34. com.lman.linkedin-curator-reply-4
 
 **檔案**: `com.lman.linkedin-curator-reply-4.plist`
 **排程**: 每日 16:50
 
 
-### 26. com.lman.linkedin-curator-reply-5
+### 35. com.lman.linkedin-curator-reply-5
 
 **檔案**: `com.lman.linkedin-curator-reply-5.plist`
 **排程**: 每日 19:15
 
 
-### 27. com.lman.magi-snapshot
-
-**檔案**: `com.lman.magi-snapshot.plist`
-**排程**: 每日 0:30
-
-
-### 28. com.lman.magi-sync
-
-**檔案**: `com.lman.magi-sync.plist`
-**排程**: 每日 0:00
-
-
-### 29. com.lman.meeting-prep
+### 36. com.lman.meeting-prep
 
 **檔案**: `com.lman.meeting-prep.plist`
 **排程**: 每日 4:00
 
 
-### 30. com.lman.persona-updater
+### 37. com.lman.persona-updater
 
 **檔案**: `com.lman.persona-updater.plist`
 **排程**: 每日 1:30
 
 
-### 31. com.lman.pkm-intelligence
+### 38. com.lman.pkm-intelligence
 
 **檔案**: `com.lman.pkm-intelligence.plist`
 **排程**: 每日 2:00
 
 
-### 32. com.lman.scheduled-tasks-updater
+### 39. com.lman.scheduled-tasks-updater
 
 **檔案**: `com.lman.scheduled-tasks-updater.plist`
 **排程**: 每日 3:30
 
 
-### 33. com.lman.slack-summary
+### 40. com.lman.slack-summary
 
 **檔案**: `com.lman.slack-summary.plist`
 **排程**: 每日 8:00
 
 
-### 34. com.lman.social-media-tracker
+### 41. com.lman.social-media-tracker
 
 **檔案**: `com.lman.social-media-tracker.plist`
 **排程**: 每日 8:30
 
 
-### 35. com.lman.stablecoin-arbitrage
+### 42. com.lman.stablecoin-arbitrage
 
 **檔案**: `com.lman.stablecoin-arbitrage.plist`
 **排程**: 每 0 小時
 
 
-### 36. com.lman.twitter-bot
+### 43. com.lman.task-sync
+
+**檔案**: `com.lman.task-sync.plist`
+**排程**: 每日 1:00
+
+
+### 44. com.lman.token-monthly-report
+
+**檔案**: `com.lman.token-monthly-report.plist`
+**排程**: 每日 9:00
+
+
+### 45. com.lman.token-weekly-report
+
+**檔案**: `com.lman.token-weekly-report.plist`
+**排程**: 每日 9:00
+
+
+### 46. com.lman.twitter-bot
 
 **檔案**: `com.lman.twitter-bot.plist`
 **排程**: 每日 2:00
 
 
-### 37. com.lman.twitter-curator-00
+### 47. com.lman.twitter-curator-00
 
 **檔案**: `com.lman.twitter-curator-00.plist`
 **排程**: 每日 00:00
 
 
-### 38. com.lman.twitter-curator-02
+### 48. com.lman.twitter-curator-02
 
 **檔案**: `com.lman.twitter-curator-02.plist`
 **排程**: 每日 02:00
 
 
-### 39. com.lman.twitter-curator-04
+### 49. com.lman.twitter-curator-04
 
 **檔案**: `com.lman.twitter-curator-04.plist`
 **排程**: 每日 04:00
 
 
-### 40. com.lman.twitter-curator-06
+### 50. com.lman.twitter-curator-06
 
 **檔案**: `com.lman.twitter-curator-06.plist`
 **排程**: 每日 06:00
 
 
-### 41. com.lman.weekly-investment-review
+### 51. com.lman.twitter-reply-07
+
+**檔案**: `com.lman.twitter-reply-07.plist`
+**排程**: 每日 7:00
+
+
+### 52. com.lman.twitter-reply-08
+
+**檔案**: `com.lman.twitter-reply-08.plist`
+**排程**: 每日 8:00
+
+
+### 53. com.lman.twitter-reply-09
+
+**檔案**: `com.lman.twitter-reply-09.plist`
+**排程**: 每日 9:00
+
+
+### 54. com.lman.twitter-reply-10
+
+**檔案**: `com.lman.twitter-reply-10.plist`
+**排程**: 每日 10:00
+
+
+### 55. com.lman.twitter-reply-11
+
+**檔案**: `com.lman.twitter-reply-11.plist`
+**排程**: 每日 11:00
+
+
+### 56. com.lman.twitter-reply-12
+
+**檔案**: `com.lman.twitter-reply-12.plist`
+**排程**: 每日 12:00
+
+
+### 57. com.lman.twitter-reply-13
+
+**檔案**: `com.lman.twitter-reply-13.plist`
+**排程**: 每日 13:00
+
+
+### 58. com.lman.twitter-reply-14
+
+**檔案**: `com.lman.twitter-reply-14.plist`
+**排程**: 每日 14:00
+
+
+### 59. com.lman.twitter-reply-15
+
+**檔案**: `com.lman.twitter-reply-15.plist`
+**排程**: 每日 15:00
+
+
+### 60. com.lman.twitter-reply-16
+
+**檔案**: `com.lman.twitter-reply-16.plist`
+**排程**: 每日 16:00
+
+
+### 61. com.lman.twitter-reply-17
+
+**檔案**: `com.lman.twitter-reply-17.plist`
+**排程**: 每日 17:00
+
+
+### 62. com.lman.twitter-reply-18
+
+**檔案**: `com.lman.twitter-reply-18.plist`
+**排程**: 每日 18:00
+
+
+### 63. com.lman.twitter-reply-19
+
+**檔案**: `com.lman.twitter-reply-19.plist`
+**排程**: 每日 19:00
+
+
+### 64. com.lman.twitter-reply-20
+
+**檔案**: `com.lman.twitter-reply-20.plist`
+**排程**: 每日 20:00
+
+
+### 65. com.lman.twitter-reply-21
+
+**檔案**: `com.lman.twitter-reply-21.plist`
+**排程**: 每日 21:00
+
+
+### 66. com.lman.twitter-reply-22
+
+**檔案**: `com.lman.twitter-reply-22.plist`
+**排程**: 每日 22:00
+
+
+### 67. com.lman.veda-daemon
+
+**檔案**: `com.lman.veda-daemon.plist`
+**排程**: Unknown
+
+
+### 68. com.lman.verify-inbox-cleanup
+
+**檔案**: `com.lman.verify-inbox-cleanup.plist`
+**排程**: 每日 0:15
+
+
+### 69. com.lman.weekly-investment-review
 
 **檔案**: `com.lman.weekly-investment-review.plist`
 **排程**: 每日 2:00
 
 
-### 42. com.lman.weekly-review
+### 70. com.lman.weekly-review
 
 **檔案**: `com.lman.weekly-review.plist`
 **排程**: 每日 3:00
@@ -311,32 +479,128 @@ Model Name: Mac Studio
 
 ## 📜 自動化腳本清單
 
-共 41 個腳本：
+共 57 個腳本：
 
 ### ~/bin/ 目錄腳本
 
-#### 1. generate-magi-snapshot.js
+#### 1. generate-daily-token-report.js
+
+**大小**: 10 KB
+**描述**: Daily Token Usage Report Generator
+
+
+#### 2. generate-iris-snapshot.js
+
+**大小**: 17 KB
+**描述**: Iris System Snapshot Generator
+
+
+#### 3. generate-magi-snapshot.js
 
 **大小**: 17 KB
 **描述**: MAGI System Snapshot Generator
 
 
-#### 2. generate-slack-summary.js
+#### 4. generate-slack-summary.js
 
 **大小**: 9 KB
 **描述**: Iris - Slack Daily Summary Generator
 
 
-#### 3. log-social-interaction.js
+#### 5. generate-token-monthly-report.js
+
+**大小**: 13 KB
+**描述**: Token Monthly Report Generator
+
+
+#### 6. generate-token-weekly-report.js
+
+**大小**: 10 KB
+**描述**: Token Weekly Report Generator
+
+
+#### 7. google-docs-auth.js
+
+**大小**: 3 KB
+**描述**: Google Docs OAuth Authorization
+
+
+#### 8. local-model-token-tracker.js
+
+**大小**: 16 KB
+**描述**: Local Model Token Tracker
+
+
+#### 9. log-social-interaction.js
 
 **大小**: 3 KB
 **描述**: Social Media Interaction Logger
 
 
-#### 4. track-social-media.js
+#### 10. parse-sync-list.js
+
+**大小**: 4 KB
+**描述**: Parse Google Docs Sync List (Markdown) → JSON Config
+
+
+#### 11. production-token-tracker.js
+
+**大小**: 15 KB
+**描述**: Production Token Tracker
+
+
+#### 12. pull-from-google-docs.js
+
+**大小**: 4 KB
+**描述**: Pull from Google Docs to Markdown
+
+
+#### 13. push-to-google-docs.js
+
+**大小**: 7 KB
+**描述**: Push Markdown to Google Docs
+
+
+#### 14. sync-all-docs.js
+
+**大小**: 7 KB
+**描述**: Sync All Tracked Documents
+
+
+#### 15. sync-markdown-to-gdocs.js
+
+**大小**: 7 KB
+**描述**: Sync Markdown ↔ Google Docs
+
+
+#### 16. task-queue-watcher.js
+
+**大小**: 9 KB
+**描述**: MAGI Task Queue Watcher
+
+
+#### 17. token-tracking-integration-example.js
+
+**大小**: 8 KB
+**描述**: Token Tracking Integration Example
+
+
+#### 18. track-social-media.js
 
 **大小**: 7 KB
 **描述**: IrisGo Social Media Tracker
+
+
+#### 19. update-google-doc.js
+
+**大小**: 7 KB
+**描述**: Update Existing Google Docs
+
+
+#### 20. verify-inbox-cleanup.js
+
+**大小**: 10 KB
+**描述**: Inbox Cleanup Verification Script
 
 
 
@@ -386,13 +650,13 @@ Model Name: Mac Studio
 
 #### 8. crypto-monitor.js
 
-**大小**: 20 KB
+**大小**: 21 KB
 **描述**: Crypto Portfolio Monitor
 
 
 #### 9. daily-brief.js
 
-**大小**: 38 KB
+**大小**: 44 KB
 **描述**: Daily Brief Generator
 
 
@@ -575,7 +839,7 @@ Model Name: Mac Studio
 - **Active Projects**: `~/Dropbox/PKM-Vault/1-Projects/Active/`
 - **Wishlist**: `~/Dropbox/PKM-Vault/1-Projects/Active/wish list.md`
 
-### MAGI System
+### Iris System
 - **系統根目錄**: `~/Dropbox/PKM-Vault/.ai-butler-system/`
 - **文檔**: `~/Dropbox/PKM-Vault/.ai-butler-system/docs/`
 - **Personas**: `~/Dropbox/PKM-Vault/.ai-butler-system/personas/`
@@ -779,7 +1043,7 @@ ollama pull gpt-oss:20b
 #### 週報與快照
 - Weekly Review (週日 03:00) - 週報生成
 - Weekly Investment Review (週日 02:00) - 投資週報
-- MAGI Snapshot (週日 00:30) - 系統快照 ⬅️ 本腳本
+- Iris Snapshot (週日 00:30) - 系統快照 ⬅️ 本腳本
 
 ### 技術能力
 - Node.js (Puppeteer, APIs, automation)
@@ -807,13 +1071,13 @@ ollama pull gpt-oss:20b
 
 ## 📝 備註
 
-- **自動生成**: 此文件由 `~/bin/generate-magi-snapshot.js` 自動生成
+- **自動生成**: 此文件由 `~/bin/generate-iris-snapshot.js` 自動生成
 - **更新頻率**: 每週日 00:30
-- **最新版本**: 永遠放在 `~/Dropbox/PKM-Vault/0-Inbox/MAGI-Installation-Guide-Latest.md`
+- **最新版本**: 永遠放在 `~/Dropbox/PKM-Vault/0-Inbox/Iris-Installation-Guide-Latest.md`
 - **歸檔位置**: `~/Dropbox/PKM-Vault/.ai-butler-system/docs/installation-archives/`
 
 ---
 
-*生成時間: 2025-11-15T16:30:05.226Z*
+*生成時間: 2025-11-22T16:30:01.361Z*
 *生成器版本: v1.0.0*
-*MAGI System - Iris (Melchior)*
+*Iris System - Iris (Melchior)*
