@@ -5,6 +5,115 @@ All notable changes to the Iris System will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.0] - 2025-11-23
+
+### 🆕 New Development Workflow & Side Projects
+
+This release introduces a new AI collaboration workflow and marks the beginning of Iris-powered side project development.
+
+#### Added
+
+##### 🤝 Google Antigravity Collaboration Mode
+
+A new development workflow that combines Claude Code with Google Antigravity IDE for efficient full-stack development.
+
+- **Workflow Architecture**
+  - Claude Code handles: Backend logic, debugging, deployment, code review, git operations
+  - Antigravity handles: Frontend/UI generation, Google Apps Script, rapid prototyping
+  - Prompt handoff system for seamless collaboration
+
+- **Key Features**
+  - Dual-AI development approach
+  - Specialized task delegation
+  - Faster iteration for UI-heavy projects
+  - Google ecosystem integration (Apps Script, Sheets, Gmail Add-ons)
+
+- **Documentation**
+  - Added `WORKFLOW-ANTIGRAVITY-COLLABORATION.md` to shared-context
+  - Updated iris-memory.md with collaboration patterns
+
+##### 💼 Pipely CRM - Side Project MVP
+
+First side project developed using the new Claude Code + Antigravity workflow.
+
+- **What is Pipely?**
+  - Gmail Add-on for lightweight CRM
+  - "Pipeline in your inbox" - manage deals without leaving Gmail
+  - Slack integration for team collaboration
+  - Google Sheets as database (simple & shareable)
+
+- **Completed MVP Features**
+  - Gmail Add-on sidebar UI
+  - Contact auto-extraction from email headers
+  - Company name inference from email domain
+  - "Add to Pipeline" one-click deal creation
+  - Deal details page with stage management
+  - Pipeline overview grouped by stages
+  - Slack notifications (new deal, stage changes)
+
+- **Technical Stack**
+  - Google Apps Script (Card Service)
+  - Google Sheets as database
+  - Slack Incoming Webhooks
+  - clasp deployment
+
+- **Repository**: https://github.com/lmanchu/pipely
+
+##### 🧠 Model Upgrades
+
+- Upgraded vision model from `qwen2.5vl:3b` to `qwen3-vl:30b` for improved visual analysis
+- Updated all relevant scripts to use the new model
+
+#### Technical Details
+
+**Pipely Architecture:**
+```
+📧 Gmail (Input) → 🗂️ Pipely (管理) → 💬 Slack (協作)
+       ↓
+📊 Google Sheets (Database)
+   ├── Deals Sheet
+   ├── Contacts Sheet
+   ├── Activities Sheet
+   └── Settings Sheet
+```
+
+**Files Created:**
+- `src/Code.gs` - Main entry point
+- `src/Cards.gs` - UI components (Card Service)
+- `src/Sheets.gs` - Google Sheets CRUD operations
+- `src/Gmail.gs` - Email parsing
+- `src/Slack.gs` - Slack webhook integration
+- `src/appsscript.json` - OAuth scopes & triggers
+
+**OAuth Scopes Used:**
+- `gmail.addons.execute` - Gmail Add-on execution
+- `gmail.readonly` - Email header access
+- `spreadsheets` - Google Sheets access
+- `script.external_request` - Slack webhook calls
+- `userinfo.email` - User identification
+
+#### Impact
+
+**Development Efficiency:**
+- Antigravity generated ~928 lines of Apps Script code
+- Claude Code handled deployment debugging and GitHub publishing
+- Total development time: ~4 hours for working MVP
+
+**New Capabilities:**
+- Side project development workflow established
+- Google ecosystem automation expanded
+- Reusable patterns for future Gmail Add-ons
+
+#### Validation
+
+- ✅ Gmail Add-on successfully deployed and tested
+- ✅ Contact details extracted from email headers
+- ✅ Deals created and stored in Google Sheets
+- ✅ Pipeline view showing deals by stage
+- ✅ Published to GitHub: https://github.com/lmanchu/pipely
+
+---
+
 ## [2.1.0] - 2025-11-01
 
 ### 👁️ Major Feature: Iris Vision System

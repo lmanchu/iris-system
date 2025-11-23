@@ -1,8 +1,8 @@
 # Iris System Installation Guide
 
-**版本**: v2025-11-23
-**生成時間**: 2025-11-22T16:30:01.361Z
-**記憶檔案版本**: 2025-11-21 (v2.0.0 - Task Queue Watcher 實時協作系統)
+**版本**: v2.2.0 (2025-11-23)
+**生成時間**: 2025-11-23
+**記憶檔案版本**: 2025-11-23 (v2.2.0 - Antigravity Collaboration & Side Projects)
 
 ---
 
@@ -856,7 +856,7 @@ Model Name: Mac Studio
 - **系統腳本**: `~/bin/`
 - **LaunchAgents**: `~/Library/LaunchAgents/`
 - **MCP 配置**: `~/.mcp.json` (如存在)
-- **Ollama 模型**: 本地運行 (gpt-oss:20b, qwen2.5vl:3b)
+- **Ollama 模型**: 本地運行 (gpt-oss:20b, qwen3-vl:30b)
 
 ---
 
@@ -1015,6 +1015,43 @@ ollama pull gpt-oss:20b
 
 ---
 
+## 🛠️ Side Projects (使用 Iris 開發)
+
+### Pipely - Gmail 內建輕量 CRM
+
+**狀態**: 🚧 MVP 完成，測試中
+**Repository**: https://github.com/lmanchu/pipely
+**開發方式**: Claude Code + Google Antigravity 協作
+
+Gmail Add-on，讓用戶直接在收件匣內管理銷售 Pipeline，並透過 Slack 與團隊協作。
+
+**功能**:
+- Gmail 側邊欄一鍵新增 Deal
+- Contact 自動提取
+- Pipeline 階段管理
+- Slack 即時通知
+- Google Sheets 作為資料庫
+
+**技術棧**: Google Apps Script, Card Service, Slack Webhooks
+
+---
+
+### Fliplang - 隱私優先的 AI 翻譯擴充功能
+
+**狀態**: 🚧 MVP 完成
+**Repository**: https://github.com/lmanchu/iris-immersive-translate
+
+Chrome Extension 提供雙引擎翻譯（Google + 本地 Ollama AI），隱私優先的沉浸式翻譯體驗。
+
+**功能**:
+- 雙引擎翻譯 (Google Translate + Ollama)
+- 本地 AI 模型支援（隱私優先）
+- 沉浸式翻譯體驗
+
+**技術棧**: Chrome Extension (Manifest V3), Ollama
+
+---
+
 ## 📊 系統能力總覽
 
 ### API & 整合
@@ -1054,10 +1091,12 @@ ollama pull gpt-oss:20b
 - Git 版本控制
 - macOS 通知系統
 - Computer Use (透過 BrowserOS)
-- Local AI (Ollama - gpt-oss:20b, qwen2.5vl:3b)
+- Local AI (Ollama - gpt-oss:20b, qwen3-vl:30b)
 - RSS Feed 解析與聚合
 - 股票市場數據查詢 (Yahoo Finance API)
 - 新聞來源整合 (多源聚合、去重、AI 評分)
+- Google Apps Script (Gmail Add-ons, Sheets automation)
+- Claude Code + Antigravity 協作開發
 
 ---
 
@@ -1078,6 +1117,6 @@ ollama pull gpt-oss:20b
 
 ---
 
-*生成時間: 2025-11-22T16:30:01.361Z*
-*生成器版本: v1.0.0*
+*生成時間: 2025-11-23*
+*版本: v2.2.0*
 *Iris System - Iris (Melchior)*
