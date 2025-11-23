@@ -5,7 +5,7 @@ All notable changes to the Iris System will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.2.0] - 2025-11-23
+## [2.7.0] - 2025-11-23
 
 ### 🆕 New Development Workflow & Side Projects
 
@@ -111,6 +111,109 @@ First side project developed using the new Claude Code + Antigravity workflow.
 - ✅ Deals created and stored in Google Sheets
 - ✅ Pipeline view showing deals by stage
 - ✅ Published to GitHub: https://github.com/lmanchu/pipely
+
+---
+
+## [2.6.0] - 2025-11-21
+
+### 🚀 Task Queue Watcher - Real-time Collaboration System
+
+**This is the most important update since MAGI System creation!**
+
+#### Core Breakthrough
+- ✅ **Iris ↔ Lucy Real-time Bidirectional Collaboration**
+  - No more manual task syncing between machines
+  - Automatic execution, status updates, and notifications
+- ✅ **Near-instant Response** - 5-30 second delay (Dropbox sync + 10s polling)
+- ✅ **Fully Automated** - Zero human intervention from task creation to completion
+
+#### System Architecture
+```
+    Iris (Home)          TASKS.md (Dropbox)      Lucy (Mobile)
+    ┌──────────┐              ┌─────┐              ┌──────────┐
+    │ Watcher  │◄─────────────┤File │─────────────►│ Watcher  │
+    │ Daemon   │  10s polling │Sync │  10s polling │ Daemon   │
+    └──────────┘              └─────┘              └──────────┘
+         │                                               │
+         │ Auto-Execute                     Auto-Execute│
+         │ tasks assigned                   tasks assigned│
+         │ to Iris                          to Lucy      │
+         ▼                                               ▼
+    [Execute]                                       [Execute]
+    [Update Status]                                 [Update Status]
+    [Notify ✅]                                      [Notify ✅]
+```
+
+#### New Components
+- **Task Queue Watcher**: `~/bin/task-queue-watcher.js` (9.2 KB, 451 lines)
+- **Iris LaunchAgent**: `~/Library/LaunchAgents/com.lman.iris-task-watcher.plist`
+- **Lucy LaunchAgent**: `~/Library/LaunchAgents/com.lman.lucy-task-watcher.plist`
+- **Setup Script**: `~/Dropbox/PKM-Vault/.ai-butler-system/task-queue-watcher-setup/`
+- **Log Files**: `~/.logs/task-queue-watcher.log`
+
+#### Features
+1. **Auto-Execute** - Tasks marked `Auto-Execute: true` run automatically
+2. **Status Tracking** - Pending → In Progress → Completed auto-update
+3. **Result Recording** - Execution time, output, errors recorded to TASKS.md
+4. **Notification System** - macOS Notification Center + iPhone sync
+5. **Error Handling** - Complete exception capture and logging
+
+#### Deployment Status
+- ✅ Iris (Mac Studio M2 Max) - Deployed 2025-11-21 09:36
+- ✅ Lucy (MacBook Air M2) - Deployed 2025-11-21 09:51
+- ⏳ Leo (Windows AIPC) - Pending
+
+#### Validation
+- ✅ TASK-006: Iris-side test successful
+- ✅ TASK-008: Lucy real-time monitoring test successful
+- ✅ TASK-009: Iris→Lucy bidirectional collaboration test successful
+
+---
+
+## [2.5.0] - 2025-11-17
+
+### 🧠 rand-mnemosyne Integration - Semantic Memory System
+
+#### Major Changes
+- ✅ **Integrated rand-mnemosyne** - GitHub rand/mnemosyne v2.3.1 agentic memory system
+- ✅ **Semantic Memory System** - LibSQL vector search providing 100-1000x retrieval speedup
+- ✅ **Shared Memory Repository** - Cross-device semantic memory built on Dropbox
+- ✅ **Multi-Agent Collaboration** - Mnemosyne's 4 specialized agents (Orchestrator, Optimizer, Reviewer, Executor)
+
+#### New Components
+- **rand-mnemosyne CLI**: `~/.local/bin/mnemosyne` (52MB binary)
+- **MAGI System DB**: `~/Dropbox/PKM-Vault/.ai-butler-system/mnemosyne/magi-system.db`
+- **Memory Count**: 30+ memories (280KB database)
+
+#### Architecture Improvements
+- **Dual-Layer Memory System**:
+  - **Old System**: JSON file sync (preserved for backward compatibility)
+  - **New System**: rand-mnemosyne semantic memory (high-speed retrieval)
+- **Dropbox Integration**: All memories auto-sync to MAGI machines via Dropbox
+
+#### Core Functions
+```bash
+# Store semantic memory
+mnemosyne remember "memory content" --importance 5
+
+# Smart retrieval
+mnemosyne recall "search keywords" --limit 5
+
+# System status
+mnemosyne status
+
+# Export memories
+mnemosyne export --format markdown > memories.md
+```
+
+#### Installation
+```bash
+# Official install script (recommended)
+curl -fsSL https://raw.githubusercontent.com/rand/mnemosyne/main/scripts/install/install.sh | bash
+
+# Set environment variable
+export MNEMOSYNE_DB_PATH=~/Dropbox/PKM-Vault/.ai-butler-system/mnemosyne/magi-system.db
+```
 
 ---
 

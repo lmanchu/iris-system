@@ -1,8 +1,8 @@
 # Iris System Installation Guide
 
-**版本**: v2.2.0 (2025-11-23)
+**版本**: v2.7.0 (2025-11-23)
 **生成時間**: 2025-11-23
-**記憶檔案版本**: 2025-11-23 (v2.2.0 - Antigravity Collaboration & Side Projects)
+**記憶檔案版本**: 2025-11-23 (v2.7.0 - Task Queue Watcher, rand-mnemosyne, Antigravity Collaboration)
 
 ---
 
@@ -44,9 +44,11 @@ Model Name: Mac Studio
 ### 必要工具
 
 - **Homebrew**: 套件管理器
-- **Claude Code CLI**: AI 助手整合
+- **Claude Code CLI**: AI 助手整合 (v2.0.28+)
 - **Dropbox**: 文件同步（Iris System 協作核心）
 - **Obsidian**: PKM 系統（可選）
+- **rand-mnemosyne**: 語義記憶系統 (v2.3.1) - v2.5 新增
+- **Rust**: 1.91.1+ (aarch64-apple-darwin) - for mnemosyne
 
 ---
 
@@ -1015,6 +1017,67 @@ ollama pull gpt-oss:20b
 
 ---
 
+## 🚀 Task Queue Watcher (v2.6 新增)
+
+### 核心突破
+**Iris ↔ Lucy 真正的實時雙向協作系統**
+
+- ✅ 不再需要手動在兩台機器間同步任務
+- ✅ 自動執行、自動更新狀態、自動通知
+- ✅ 近即時響應 - 5-30 秒延遲
+
+### 系統架構
+```
+    Iris (Home)          TASKS.md (Dropbox)      Lucy (Mobile)
+    ┌──────────┐              ┌─────┐              ┌──────────┐
+    │ Watcher  │◄─────────────┤File │─────────────►│ Watcher  │
+    │ Daemon   │  10s polling │Sync │  10s polling │ Daemon   │
+    └──────────┘              └─────┘              └──────────┘
+```
+
+### 組件
+- **Task Queue Watcher**: `~/bin/task-queue-watcher.js`
+- **Iris LaunchAgent**: `com.lman.iris-task-watcher.plist`
+- **Lucy LaunchAgent**: `com.lman.lucy-task-watcher.plist`
+- **任務隊列**: `~/Dropbox/PKM-Vault/.ai-butler-system/TASKS.md`
+
+### 使用方式
+```markdown
+# 在 TASKS.md 添加任務：
+- **Assigned To**: Iris
+- **Auto-Execute**: true
+- **Command**: ~/bin/sync-all-docs.js
+
+# → 10 秒內 Iris 自動執行，Lucy 收到完成通知
+```
+
+---
+
+## 🧠 rand-mnemosyne 整合 (v2.5 新增)
+
+### 安裝位置
+- **Binary**: `~/.local/bin/mnemosyne` (52MB)
+- **Database**: `~/Dropbox/PKM-Vault/.ai-butler-system/mnemosyne/magi-system.db`
+
+### 核心功能
+```bash
+# 語義記憶儲存
+mnemosyne remember "記憶內容" --importance 5
+
+# 智能檢索
+mnemosyne recall "搜尋關鍵字" --limit 5
+
+# 系統狀態
+mnemosyne status
+```
+
+### 架構
+**雙層記憶系統**：
+- **JSON 文件** (舊): 向後相容
+- **rand-mnemosyne** (新): 語義向量搜尋，100-1000x 速度提升
+
+---
+
 ## 🛠️ Side Projects (使用 Iris 開發)
 
 ### Pipely - Gmail 內建輕量 CRM
@@ -1061,6 +1124,7 @@ Chrome Extension 提供雙引擎翻譯（Google + 本地 Ollama AI），隱私�
 - ✅ Gemini AI (via MCP & Direct API)
 - ✅ Gamma (via MCP)
 - ✅ BrowserOS (via MCP)
+- ✅ rand-mnemosyne (via CLI) - v2.5 新增
 
 ### 自動化任務
 
@@ -1097,6 +1161,8 @@ Chrome Extension 提供雙引擎翻譯（Google + 本地 Ollama AI），隱私�
 - 新聞來源整合 (多源聚合、去重、AI 評分)
 - Google Apps Script (Gmail Add-ons, Sheets automation)
 - Claude Code + Antigravity 協作開發
+- 語義記憶與檢索 (rand-mnemosyne LibSQL vector search) - v2.5 新增
+- Task Queue 實時協作 (Iris ↔ Lucy auto-sync) - v2.6 新增
 
 ---
 
@@ -1118,5 +1184,6 @@ Chrome Extension 提供雙引擎翻譯（Google + 本地 Ollama AI），隱私�
 ---
 
 *生成時間: 2025-11-23*
-*版本: v2.2.0*
+*版本: v2.7.0*
 *Iris System - Iris (Melchior)*
+*Task Queue Watcher + rand-mnemosyne + Antigravity Collaboration*
