@@ -1,8 +1,8 @@
 # Iris System Installation Guide
 
-**版本**: v2025-11-23
-**生成時間**: 2025-11-22T16:30:01.361Z
-**記憶檔案版本**: 2025-11-21 (v2.0.0 - Task Queue Watcher 實時協作系統)
+**版本**: v2025-11-30
+**生成時間**: 2025-11-29T16:30:06.617Z
+**記憶檔案版本**: 2025-11-24 (v2.9.0 - Episodic Memory 共享記憶系統)
 
 ---
 
@@ -52,7 +52,7 @@ Model Name: Mac Studio
 
 ## 🤖 LaunchAgents 清單
 
-共 70 個定時任務：
+共 75 個定時任務：
 
 ### 1. com.lman.action-items-organizer
 
@@ -114,361 +114,391 @@ Model Name: Mac Studio
 **排程**: 每日 9:00
 
 
-### 11. com.lman.google-docs-auto-sync
+### 11. com.lman.gmail-auto-draft
+
+**檔案**: `com.lman.gmail-auto-draft.plist`
+**排程**: 每日 6:30
+
+
+### 12. com.lman.google-docs-auto-sync
 
 **檔案**: `com.lman.google-docs-auto-sync.plist`
 **排程**: 每日 9:00
 
 
-### 12. com.lman.inbox-archiver
+### 13. com.lman.inbox-archiver
 
 **檔案**: `com.lman.inbox-archiver.plist`
 **排程**: 每日 5:00
 
 
-### 13. com.lman.investment-analyst
+### 14. com.lman.investment-analyst
 
 **檔案**: `com.lman.investment-analyst.plist`
 **排程**: Unknown
 
 
-### 14. com.lman.investment-archiver
+### 15. com.lman.investment-archiver
 
 **檔案**: `com.lman.investment-archiver.plist`
 **排程**: 每日 6:00
 
 
-### 15. com.lman.iris-app-monitor
+### 16. com.lman.iris-app-monitor
 
 **檔案**: `com.lman.iris-app-monitor.plist`
 **排程**: Unknown
 
 
-### 16. com.lman.iris-cleanup
+### 17. com.lman.iris-cleanup
 
 **檔案**: `com.lman.iris-cleanup.plist`
 **排程**: 每日 3:00
 
 
-### 17. com.lman.iris-pkm-archive
+### 18. com.lman.iris-pkm-archive
 
 **檔案**: `com.lman.iris-pkm-archive.plist`
 **排程**: 每日 23:30
 
 
-### 18. com.lman.iris-reminder
+### 19. com.lman.iris-reminder
 
 **檔案**: `com.lman.iris-reminder.plist`
 **排程**: 每日 9:30
 
 
-### 19. com.lman.iris-snapshot
+### 20. com.lman.iris-snapshot
 
 **檔案**: `com.lman.iris-snapshot.plist`
 **排程**: 每日 0:30
 
 
-### 20. com.lman.iris-sync
+### 21. com.lman.iris-sync
 
 **檔案**: `com.lman.iris-sync.plist`
 **排程**: 每日 0:00
 
 
-### 21. com.lman.iris-task-watcher
+### 22. com.lman.iris-task-watcher
 
 **檔案**: `com.lman.iris-task-watcher.plist`
 **排程**: Unknown
 
 
-### 22. com.lman.iris-veda-broker
+### 23. com.lman.iris-veda-broker
 
 **檔案**: `com.lman.iris-veda-broker.plist`
 **排程**: Unknown
 
 
-### 23. com.lman.iris-vision-daemon
+### 24. com.lman.iris-vision-daemon
 
 **檔案**: `com.lman.iris-vision-daemon.plist`
 **排程**: Unknown
 
 
-### 24. com.lman.irisgo-docs-sync
+### 25. com.lman.irisgo-docs-sync
 
 **檔案**: `com.lman.irisgo-docs-sync.plist`
 **排程**: 每 72 小時
 
 
-### 25. com.lman.linkedin-curator-09
+### 26. com.lman.linkedin-curator-09
 
 **檔案**: `com.lman.linkedin-curator-09.plist`
 **排程**: 每日 9:00
 
 
-### 26. com.lman.linkedin-curator-17
+### 27. com.lman.linkedin-curator-17
 
 **檔案**: `com.lman.linkedin-curator-17.plist`
 **排程**: 每日 17:00
 
 
-### 27. com.lman.linkedin-curator-post-0
+### 28. com.lman.linkedin-curator-post-0
 
 **檔案**: `com.lman.linkedin-curator-post-0.plist`
 **排程**: 每日 9:30
 
 
-### 28. com.lman.linkedin-curator-post-1
+### 29. com.lman.linkedin-curator-post-1
 
 **檔案**: `com.lman.linkedin-curator-post-1.plist`
 **排程**: 每日 14:45
 
 
-### 29. com.lman.linkedin-curator-post-2
+### 30. com.lman.linkedin-curator-post-2
 
 **檔案**: `com.lman.linkedin-curator-post-2.plist`
 **排程**: 每日 18:20
 
 
-### 30. com.lman.linkedin-curator-reply-0
+### 31. com.lman.linkedin-curator-reply-0
 
 **檔案**: `com.lman.linkedin-curator-reply-0.plist`
 **排程**: 每日 10:15
 
 
-### 31. com.lman.linkedin-curator-reply-1
+### 32. com.lman.linkedin-curator-reply-1
 
 **檔案**: `com.lman.linkedin-curator-reply-1.plist`
 **排程**: 每日 11:45
 
 
-### 32. com.lman.linkedin-curator-reply-2
+### 33. com.lman.linkedin-curator-reply-2
 
 **檔案**: `com.lman.linkedin-curator-reply-2.plist`
 **排程**: 每日 13:20
 
 
-### 33. com.lman.linkedin-curator-reply-3
+### 34. com.lman.linkedin-curator-reply-3
 
 **檔案**: `com.lman.linkedin-curator-reply-3.plist`
 **排程**: 每日 15:30
 
 
-### 34. com.lman.linkedin-curator-reply-4
+### 35. com.lman.linkedin-curator-reply-4
 
 **檔案**: `com.lman.linkedin-curator-reply-4.plist`
 **排程**: 每日 16:50
 
 
-### 35. com.lman.linkedin-curator-reply-5
+### 36. com.lman.linkedin-curator-reply-5
 
 **檔案**: `com.lman.linkedin-curator-reply-5.plist`
 **排程**: 每日 19:15
 
 
-### 36. com.lman.meeting-prep
+### 37. com.lman.meeting-prep
 
 **檔案**: `com.lman.meeting-prep.plist`
 **排程**: 每日 4:00
 
 
-### 37. com.lman.persona-updater
+### 38. com.lman.persona-updater
 
 **檔案**: `com.lman.persona-updater.plist`
 **排程**: 每日 1:30
 
 
-### 38. com.lman.pkm-intelligence
+### 39. com.lman.pkm-intelligence
 
 **檔案**: `com.lman.pkm-intelligence.plist`
 **排程**: 每日 2:00
 
 
-### 39. com.lman.scheduled-tasks-updater
+### 40. com.lman.scheduled-tasks-updater
 
 **檔案**: `com.lman.scheduled-tasks-updater.plist`
 **排程**: 每日 3:30
 
 
-### 40. com.lman.slack-summary
+### 41. com.lman.slack-summary
 
 **檔案**: `com.lman.slack-summary.plist`
 **排程**: 每日 8:00
 
 
-### 41. com.lman.social-media-tracker
+### 42. com.lman.social-media-tracker
 
 **檔案**: `com.lman.social-media-tracker.plist`
 **排程**: 每日 8:30
 
 
-### 42. com.lman.stablecoin-arbitrage
+### 43. com.lman.stablecoin-arbitrage
 
 **檔案**: `com.lman.stablecoin-arbitrage.plist`
 **排程**: 每 0 小時
 
 
-### 43. com.lman.task-sync
+### 44. com.lman.startup-health-check
+
+**檔案**: `com.lman.startup-health-check.plist`
+**排程**: 每日 9:00
+
+
+### 45. com.lman.task-sync
 
 **檔案**: `com.lman.task-sync.plist`
 **排程**: 每日 1:00
 
 
-### 44. com.lman.token-monthly-report
+### 46. com.lman.token-monthly-report
 
 **檔案**: `com.lman.token-monthly-report.plist`
 **排程**: 每日 9:00
 
 
-### 45. com.lman.token-weekly-report
+### 47. com.lman.token-weekly-report
 
 **檔案**: `com.lman.token-weekly-report.plist`
 **排程**: 每日 9:00
 
 
-### 46. com.lman.twitter-bot
+### 48. com.lman.twitter-bot
 
 **檔案**: `com.lman.twitter-bot.plist`
 **排程**: 每日 2:00
 
 
-### 47. com.lman.twitter-curator-00
+### 49. com.lman.twitter-curator-00
 
 **檔案**: `com.lman.twitter-curator-00.plist`
 **排程**: 每日 00:00
 
 
-### 48. com.lman.twitter-curator-02
+### 50. com.lman.twitter-curator-02
 
 **檔案**: `com.lman.twitter-curator-02.plist`
 **排程**: 每日 02:00
 
 
-### 49. com.lman.twitter-curator-04
+### 51. com.lman.twitter-curator-04
 
 **檔案**: `com.lman.twitter-curator-04.plist`
 **排程**: 每日 04:00
 
 
-### 50. com.lman.twitter-curator-06
+### 52. com.lman.twitter-curator-06
 
 **檔案**: `com.lman.twitter-curator-06.plist`
 **排程**: 每日 06:00
 
 
-### 51. com.lman.twitter-reply-07
+### 53. com.lman.twitter-reply-07
 
 **檔案**: `com.lman.twitter-reply-07.plist`
 **排程**: 每日 7:00
 
 
-### 52. com.lman.twitter-reply-08
+### 54. com.lman.twitter-reply-08
 
 **檔案**: `com.lman.twitter-reply-08.plist`
 **排程**: 每日 8:00
 
 
-### 53. com.lman.twitter-reply-09
+### 55. com.lman.twitter-reply-09
 
 **檔案**: `com.lman.twitter-reply-09.plist`
 **排程**: 每日 9:00
 
 
-### 54. com.lman.twitter-reply-10
+### 56. com.lman.twitter-reply-10
 
 **檔案**: `com.lman.twitter-reply-10.plist`
 **排程**: 每日 10:00
 
 
-### 55. com.lman.twitter-reply-11
+### 57. com.lman.twitter-reply-11
 
 **檔案**: `com.lman.twitter-reply-11.plist`
 **排程**: 每日 11:00
 
 
-### 56. com.lman.twitter-reply-12
+### 58. com.lman.twitter-reply-12
 
 **檔案**: `com.lman.twitter-reply-12.plist`
 **排程**: 每日 12:00
 
 
-### 57. com.lman.twitter-reply-13
+### 59. com.lman.twitter-reply-13
 
 **檔案**: `com.lman.twitter-reply-13.plist`
 **排程**: 每日 13:00
 
 
-### 58. com.lman.twitter-reply-14
+### 60. com.lman.twitter-reply-14
 
 **檔案**: `com.lman.twitter-reply-14.plist`
 **排程**: 每日 14:00
 
 
-### 59. com.lman.twitter-reply-15
+### 61. com.lman.twitter-reply-15
 
 **檔案**: `com.lman.twitter-reply-15.plist`
 **排程**: 每日 15:00
 
 
-### 60. com.lman.twitter-reply-16
+### 62. com.lman.twitter-reply-16
 
 **檔案**: `com.lman.twitter-reply-16.plist`
 **排程**: 每日 16:00
 
 
-### 61. com.lman.twitter-reply-17
+### 63. com.lman.twitter-reply-17
 
 **檔案**: `com.lman.twitter-reply-17.plist`
 **排程**: 每日 17:00
 
 
-### 62. com.lman.twitter-reply-18
+### 64. com.lman.twitter-reply-18
 
 **檔案**: `com.lman.twitter-reply-18.plist`
 **排程**: 每日 18:00
 
 
-### 63. com.lman.twitter-reply-19
+### 65. com.lman.twitter-reply-19
 
 **檔案**: `com.lman.twitter-reply-19.plist`
 **排程**: 每日 19:00
 
 
-### 64. com.lman.twitter-reply-20
+### 66. com.lman.twitter-reply-20
 
 **檔案**: `com.lman.twitter-reply-20.plist`
 **排程**: 每日 20:00
 
 
-### 65. com.lman.twitter-reply-21
+### 67. com.lman.twitter-reply-21
 
 **檔案**: `com.lman.twitter-reply-21.plist`
 **排程**: 每日 21:00
 
 
-### 66. com.lman.twitter-reply-22
+### 68. com.lman.twitter-reply-22
 
 **檔案**: `com.lman.twitter-reply-22.plist`
 **排程**: 每日 22:00
 
 
-### 67. com.lman.veda-daemon
+### 69. com.lman.twitter-reply-gemini-0
+
+**檔案**: `com.lman.twitter-reply-gemini-0.plist`
+**排程**: 每日 10:00
+
+
+### 70. com.lman.twitter-reply-gemini-1
+
+**檔案**: `com.lman.twitter-reply-gemini-1.plist`
+**排程**: 每日 14:00
+
+
+### 71. com.lman.twitter-reply-gemini-2
+
+**檔案**: `com.lman.twitter-reply-gemini-2.plist`
+**排程**: 每日 18:00
+
+
+### 72. com.lman.veda-daemon
 
 **檔案**: `com.lman.veda-daemon.plist`
 **排程**: Unknown
 
 
-### 68. com.lman.verify-inbox-cleanup
+### 73. com.lman.verify-inbox-cleanup
 
 **檔案**: `com.lman.verify-inbox-cleanup.plist`
 **排程**: 每日 0:15
 
 
-### 69. com.lman.weekly-investment-review
+### 74. com.lman.weekly-investment-review
 
 **檔案**: `com.lman.weekly-investment-review.plist`
 **排程**: 每日 2:00
 
 
-### 70. com.lman.weekly-review
+### 75. com.lman.weekly-review
 
 **檔案**: `com.lman.weekly-review.plist`
 **排程**: 每日 3:00
@@ -479,13 +509,13 @@ Model Name: Mac Studio
 
 ## 📜 自動化腳本清單
 
-共 57 個腳本：
+共 70 個腳本：
 
 ### ~/bin/ 目錄腳本
 
 #### 1. generate-daily-token-report.js
 
-**大小**: 10 KB
+**大小**: 16 KB
 **描述**: Daily Token Usage Report Generator
 
 
@@ -591,13 +621,19 @@ Model Name: Mac Studio
 **描述**: IrisGo Social Media Tracker
 
 
-#### 19. update-google-doc.js
+#### 19. update-google-doc-v2.js
+
+**大小**: 13 KB
+**描述**: Update Existing Google Docs v2
+
+
+#### 20. update-google-doc.js
 
 **大小**: 7 KB
 **描述**: Update Existing Google Docs
 
 
-#### 20. verify-inbox-cleanup.js
+#### 21. verify-inbox-cleanup.js
 
 **大小**: 10 KB
 **描述**: Inbox Cleanup Verification Script
@@ -656,7 +692,7 @@ Model Name: Mac Studio
 
 #### 9. daily-brief.js
 
-**大小**: 44 KB
+**大小**: 47 KB
 **描述**: Daily Brief Generator
 
 
@@ -678,151 +714,223 @@ Model Name: Mac Studio
 **描述**: DayFlow Intelligence Analyzer
 
 
-#### 13. gdocs-sync-with-git.sh
+#### 13. delete-test-drafts.js
+
+**大小**: 3 KB
+**描述**: 刪除測試草稿
+
+
+#### 14. gdocs-sync-with-git.sh
 
 **大小**: 1 KB
 **描述**: No description
 
 
-#### 14. gdocs-to-md-sync.js
+#### 15. gdocs-to-md-sync.js
 
 **大小**: 12 KB
 **描述**: Google Docs to Markdown Sync
 
 
-#### 15. gemini-file-uploader-v2.js
+#### 16. gemini-file-uploader-v2.js
 
 **大小**: 7 KB
 **描述**: Gemini File Uploader V2 - 使用 REST API
 
 
-#### 16. gemini-file-uploader.js
+#### 17. gemini-file-uploader.js
 
 **大小**: 9 KB
 **描述**: Gemini File Uploader
 
 
-#### 17. gemini-kb-query.js
+#### 18. gemini-kb-query.js
 
 **大小**: 5 KB
 **描述**: Gemini Knowledge Base Query Tool
 
 
-#### 18. google-calendar-auth.js
+#### 19. gmail-auto-draft-api-poc.js
+
+**大小**: 13 KB
+**描述**: Gmail Auto-Draft POC - Gmail API Version
+
+
+#### 20. gmail-auto-draft-poc-dia-cdp.js
+
+**大小**: 9 KB
+**描述**: Gmail Auto-Draft POC - DIA Browser CDP Version
+
+
+#### 21. gmail-auto-draft-poc-dia.js
+
+**大小**: 12 KB
+**描述**: Gmail Auto-Draft POC - DIA Browser Version
+
+
+#### 22. gmail-auto-draft-poc-simple.js
+
+**大小**: 9 KB
+**描述**: Gmail Auto-Draft POC - Simple Version
+
+
+#### 23. gmail-auto-draft-poc-stealth.js
+
+**大小**: 10 KB
+**描述**: Gmail Auto-Draft POC - Enhanced Stealth Version
+
+
+#### 24. gmail-auto-draft-poc-v2.js
+
+**大小**: 8 KB
+**描述**: Gmail Auto-Draft POC v2
+
+
+#### 25. gmail-auto-draft-poc.js
+
+**大小**: 9 KB
+**描述**: Gmail Auto-Draft POC (Proof of Concept)
+
+
+#### 26. gmail-auto-draft-v2.js
+
+**大小**: 16 KB
+**描述**: Gmail Auto-Draft v2 - 本地 LLM 整合版
+
+
+#### 27. google-calendar-auth.js
 
 **大小**: 4 KB
 **描述**: Google Calendar OAuth Authentication
 
 
-#### 19. hn-scraper.js
+#### 28. hn-scraper.js
 
 **大小**: 3 KB
 **描述**: Hacker News Scraper (使用 ii-agent browser)
 
 
-#### 20. inbox-archiver.js
+#### 29. inbox-archiver.js
 
 **大小**: 4 KB
 **描述**: Inbox Archiver
 
 
-#### 21. investment-archiver.js
+#### 30. investment-archiver.js
 
 **大小**: 5 KB
 **描述**: Investment Reports Archiver
 
 
-#### 22. md-to-gdocs.js
+#### 31. md-to-gdocs.js
 
 **大小**: 8 KB
 **描述**: Markdown to Google Docs Converter
 
 
-#### 23. meeting-prep.js
+#### 32. meeting-prep.js
 
 **大小**: 10 KB
 **描述**: Meeting Intelligence Prep System
 
 
-#### 24. news-sources.js
+#### 33. news-sources.js
 
 **大小**: 11 KB
 **描述**: News Sources Module
 
 
-#### 25. pkm-intelligence.js
+#### 34. pkm-intelligence.js
 
 **大小**: 10 KB
 **描述**: PKM Vault Intelligence System
 
 
-#### 26. scheduled-tasks-updater.js
+#### 35. scheduled-tasks-updater.js
 
 **大小**: 5 KB
 **描述**: Scheduled Tasks Overview Auto-Updater
 
 
-#### 27. setup-appstore-monitor.sh
+#### 36. setup-appstore-monitor.sh
 
 **大小**: 2 KB
 **描述**: No description
 
 
-#### 28. setup-gdocs-sync.sh
+#### 37. setup-gdocs-sync.sh
 
 **大小**: 2 KB
 **描述**: No description
 
 
-#### 29. social-media-summary.js
+#### 38. social-media-summary.js
 
 **大小**: 11 KB
 **描述**: Social Media Activity Summary Generator
 
 
-#### 30. social-media-tracker.js
+#### 39. social-media-tracker.js
 
 **大小**: 4 KB
 **描述**: Social Media Tracker
 
 
-#### 31. stablecoin-arbitrage-monitor.js
+#### 40. stablecoin-arbitrage-monitor.js
 
 **大小**: 11 KB
 **描述**: Stablecoin Arbitrage Monitor
 
 
-#### 32. test-drive-api.js
+#### 41. startup-health-check.js
+
+**大小**: 7 KB
+**描述**: Startup Health Check Report Generator
+
+
+#### 42. test-drive-api.js
 
 **大小**: 2 KB
 **描述**: No description
 
 
-#### 33. twitter-curator.js
+#### 43. test-gmail-api-setup.js
 
-**大小**: 11 KB
+**大小**: 3 KB
+**描述**: Gmail API 設定檢查腳本
+
+
+#### 44. test-twitter-anime.js
+
+**大小**: 2 KB
+**描述**: 測試 Twitter Curator 的動漫類比功能
+
+
+#### 45. twitter-curator.js
+
+**大小**: 20 KB
 **描述**: Twitter Content Curator
 
 
-#### 34. update-gdoc.js
+#### 46. update-gdoc.js
 
 **大小**: 3 KB
 **描述**: Update existing Google Doc with Markdown content
 
 
-#### 35. upload-to-gemini.sh
+#### 47. upload-to-gemini.sh
 
 **大小**: 3 KB
 **描述**: No description
 
 
-#### 36. weekly-investment-review.js
+#### 48. weekly-investment-review.js
 
 **大小**: 9 KB
 **描述**: Weekly Investment Review Generator
 
 
-#### 37. weekly-review.js
+#### 49. weekly-review.js
 
 **大小**: 12 KB
 **描述**: Weekly Review Generator
@@ -1078,6 +1186,6 @@ ollama pull gpt-oss:20b
 
 ---
 
-*生成時間: 2025-11-22T16:30:01.361Z*
+*生成時間: 2025-11-29T16:30:06.617Z*
 *生成器版本: v1.0.0*
 *Iris System - Iris (Melchior)*
