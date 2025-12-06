@@ -5,6 +5,85 @@ All notable changes to the Iris System will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - 2025-12-06
+
+### 🧠 RLabs Memory System - AI Curated Memory
+
+This is a major release introducing an AI-powered memory curation system that automatically decides what's worth remembering across sessions.
+
+#### Added
+
+##### 🧠 RLabs Memory System Integration
+
+A revolutionary memory system that gives Claude Code persistent, cross-session memory with intelligent curation.
+
+- **Core Features**
+  - AI-curated memories (automatically decides what's important)
+  - Trigger phrase detection for smart retrieval
+  - Project isolation via `.memory-project.json`
+  - Session primer for temporal continuity
+  - Importance weighting (0.0-1.0)
+
+- **Technical Stack**
+  - ChromaDB for vector storage
+  - SQLite for metadata and summaries
+  - sentence-transformers (all-MiniLM-L6-v2) for embeddings
+  - FastAPI server on port 8765
+
+- **Claude Code Hooks**
+  - `SessionStart` → Injects session primer + temporal context
+  - `UserPromptSubmit` → Retrieves and injects relevant memories (max 5)
+  - `PreCompact` → Curates memories from transcript
+  - `Stop` → Curates important memories at session end
+
+##### 🔗 Iris ↔ Lucy Shared Memory
+
+Cross-machine memory sharing via Dropbox symlink:
+
+- **Shared Location**: `~/Dropbox/PKM-Vault/.ai-butler-system/rlabs-memory/`
+- **Effect**: Memories curated by Iris are accessible to Lucy and vice versa
+- **Mechanism**: SQLite database symlinked to shared Dropbox folder
+
+##### 📦 New LaunchAgent
+
+- `com.lman.rlabs-memory.plist` - RLabs Memory server (RunAtLoad + KeepAlive)
+
+#### Technical Details
+
+**Installation:**
+```bash
+# Clone RLabs Memory
+git clone https://github.com/RLabs-Inc/memory.git ~/rlabs-memory
+
+# Install dependencies
+cd ~/rlabs-memory && uv sync
+
+# Setup shared memory symlink
+mkdir -p ~/Dropbox/PKM-Vault/.ai-butler-system/rlabs-memory
+ln -sf ~/Dropbox/PKM-Vault/.ai-butler-system/rlabs-memory/memory.db \
+       ~/rlabs-memory/python/memory.db
+
+# Load LaunchAgent
+launchctl load ~/Library/LaunchAgents/com.lman.rlabs-memory.plist
+```
+
+**Memory System Comparison:**
+
+| System | Purpose | Key Feature |
+|--------|---------|-------------|
+| RLabs Memory | AI-curated auto-memory | Trigger phrases, project isolation, sharing |
+| Leo | 25-year document search | Historical decision queries |
+| Episodic Memory | Conversation history | Now integrated as RLabs supplement |
+
+#### Impact
+
+- **Cross-session context**: Iris now remembers important decisions and preferences across conversations
+- **Cross-machine sharing**: Lucy can leverage Iris's memories and vice versa
+- **Reduced repetition**: Less need to re-explain project context in new sessions
+- **Intelligent retrieval**: Only relevant memories are surfaced based on conversation context
+
+---
+
 ## [2.7.0] - 2025-11-23
 
 ### 🆕 New Development Workflow & Side Projects

@@ -1,8 +1,8 @@
 # Iris System Installation Guide
 
-**版本**: v2.7.0 (2025-11-23)
-**生成時間**: 2025-11-23
-**記憶檔案版本**: 2025-11-23 (v2.7.0 - Task Queue Watcher, rand-mnemosyne, Antigravity Collaboration)
+**版本**: v3.0.0 (2025-12-06)
+**生成時間**: 2025-12-06
+**記憶檔案版本**: 2025-12-06 (v3.0.0 - RLabs Memory System AI 策展記憶)
 
 ---
 
@@ -47,8 +47,9 @@ Model Name: Mac Studio
 - **Claude Code CLI**: AI 助手整合 (v2.0.28+)
 - **Dropbox**: 文件同步（Iris System 協作核心）
 - **Obsidian**: PKM 系統（可選）
-- **rand-mnemosyne**: 語義記憶系統 (v2.3.1) - v2.5 新增
-- **Rust**: 1.91.1+ (aarch64-apple-darwin) - for mnemosyne
+- **RLabs Memory**: AI 策展記憶系統 - v3.0.0 新增 (取代 rand-mnemosyne)
+- **uv**: Python 套件管理器 - for RLabs Memory
+- **Python**: 3.11+ - for RLabs Memory
 
 ---
 
@@ -1115,6 +1116,84 @@ Chrome Extension 提供雙引擎翻譯（Google + 本地 Ollama AI），隱私�
 
 ---
 
+## 🧠 RLabs Memory System (v3.0.0 新增)
+
+### 系統概述
+
+**RLabs Memory System** 是 AI 策展記憶系統，自動決定什麼值得記住。這是 v3.0.0 最重大的更新，取代了之前的 rand-mnemosyne。
+
+- **GitHub**: https://github.com/RLabs-Inc/memory
+- **本地位置**: `~/rlabs-memory/`
+- **Server**: `http://localhost:8765`
+- **LaunchAgent**: `com.lman.rlabs-memory` (開機自動啟動)
+- **Log**: `~/.logs/rlabs-memory.log`
+
+### 技術棧
+
+- **ChromaDB** - 向量儲存
+- **SQLite** - metadata + summaries
+- **sentence-transformers** - all-MiniLM-L6-v2 嵌入模型
+- **FastAPI** - HTTP server
+
+### Claude Code Hooks
+
+RLabs Memory 透過 Claude Code hooks 自動運作：
+
+| Hook | 觸發時機 | 功能 |
+|------|----------|------|
+| `SessionStart` | 對話開始 | 注入 session primer + 時間上下文 |
+| `UserPromptSubmit` | 用戶輸入 | 檢索並注入相關記憶 (max 5) |
+| `PreCompact` | 對話壓縮前 | 從 transcript 策展記憶 |
+| `Stop` | 對話結束 | session 結束時策展重要記憶 |
+
+### Iris ↔ Lucy 共享記憶
+
+透過 Dropbox symlink 實現 Iris 與 Lucy 的記憶共享：
+
+```bash
+# 共享位置
+~/Dropbox/PKM-Vault/.ai-butler-system/rlabs-memory/
+
+# Symlink 設定 (本地 → Dropbox)
+ln -sf ~/Dropbox/PKM-Vault/.ai-butler-system/rlabs-memory/memory.db \
+       ~/rlabs-memory/python/memory.db
+```
+
+**效果**: Iris 策展的記憶，Lucy 也能讀取；反之亦然。
+
+### 安裝步驟
+
+```bash
+# 1. Clone RLabs Memory
+cd ~
+git clone https://github.com/RLabs-Inc/memory.git rlabs-memory
+cd rlabs-memory
+
+# 2. 安裝依賴 (使用 uv)
+uv sync
+
+# 3. 設定共享記憶 symlink
+mkdir -p ~/Dropbox/PKM-Vault/.ai-butler-system/rlabs-memory
+ln -sf ~/Dropbox/PKM-Vault/.ai-butler-system/rlabs-memory/memory.db \
+       ~/rlabs-memory/python/memory.db
+
+# 4. 載入 LaunchAgent
+launchctl load ~/Library/LaunchAgents/com.lman.rlabs-memory.plist
+
+# 5. 驗證運行
+curl http://localhost:8765/health
+```
+
+### 與其他記憶系統區別
+
+| 系統 | 用途 | 特色 |
+|------|------|------|
+| **RLabs Memory** | AI 策展 + 自動記憶 | trigger phrases, 專案隔離, 共享 |
+| **Leo** | 25 年靜態文件語義搜尋 | 歷史決策查詢 |
+| **Episodic Memory** | 對話歷史搜尋 | 已整合為 RLabs 補充 |
+
+---
+
 ## 📊 系統能力總覽
 
 ### API & 整合
@@ -1124,7 +1203,7 @@ Chrome Extension 提供雙引擎翻譯（Google + 本地 Ollama AI），隱私�
 - ✅ Gemini AI (via MCP & Direct API)
 - ✅ Gamma (via MCP)
 - ✅ BrowserOS (via MCP)
-- ✅ rand-mnemosyne (via CLI) - v2.5 新增
+- ✅ **RLabs Memory** (via Hooks) - v3.0.0 新增 (取代 rand-mnemosyne)
 
 ### 自動化任務
 
