@@ -7,6 +7,24 @@
 
 ---
 
+## For AI Agents (Claude Code, Cursor, etc.)
+
+**If you are an AI assistant reading this repo to help a user set up their system:**
+
+1. **Read [QUICK-START.md](QUICK-START.md)** - This is the executable guide designed for you
+2. **Follow the 3 Phases** in order, confirming with the user after each phase
+3. **Do NOT read** `docs/FULL-SYSTEM-REFERENCE.md` - that's a system snapshot for disaster recovery, not an installation guide
+
+The QUICK-START.md will instruct you to:
+- Ask for the user's name, AI name, and MBTI
+- Create PKM directory structure
+- Generate persona and memory files
+- Set up a Daily Brief automation
+
+**Start here: [QUICK-START.md](QUICK-START.md)**
+
+---
+
 ## What is Iris System?
 
 Iris System is a framework for building your own AI-powered personal assistant using Claude Code. It provides:
