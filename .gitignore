@@ -1,12 +1,24 @@
 # macOS
 .DS_Store
+
+# Dependencies
+node_modules/
+
+# Logs
+logs/
 *.log
+
+# Credentials (sensitive)
+credentials/
 
 # Editor
 .vscode/
 .idea/
 *.swp
 *.swo
+
+# Local data
+data/
 
 # Temporary files
 *.tmp
