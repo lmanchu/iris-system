@@ -14,6 +14,8 @@
  * 2025-12-04: 改為本地優先以節省 Gemini API 費用
  */
 
+require('dotenv').config({ path: require('path').join(__dirname, '.env') });
+
 const fs = require('fs');
 const path = require('path');
 const { spawn } = require('child_process');

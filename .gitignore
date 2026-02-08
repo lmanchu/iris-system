@@ -10,6 +10,7 @@ logs/
 
 # Credentials (sensitive)
 credentials/
+.env
 
 # Editor
 .vscode/
