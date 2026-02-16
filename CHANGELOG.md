@@ -5,6 +5,25 @@ All notable changes to the Iris System will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.1.0] - 2026-02-16
+
+### 📖 QUICK-START v2.0 — Major Rewrite
+
+Complete overhaul of the onboarding guide to reflect the evolved system architecture.
+
+#### Changed
+- **Architecture Overview**: Added 5-layer diagram (User → Agent → Memory → Model → Runtime)
+- **Phase 2**: Now includes CLAUDE.md setup and proper project instructions
+- **Phase 3**: New — 3-layer memory infrastructure (RLabs + Episodic + QMD local RAG)
+- **Phase 5**: New — CLIProxyAPI model router for unified LLM access
+- **Phase 6**: New — Slack bot setup with Bolt v3 + Socket Mode
+
+#### Added
+- Growth Path table (L1→L4 progressive expansion)
+- Service management rules (LaunchAgent vs PM2, Bun constraints)
+- Improved troubleshooting with `launchctl kickstart` and health checks
+- QMD hybrid search (BM25 + vector + reranking) setup instructions
+
 ## [3.0.0] - 2025-12-06
 
 ### 🧠 RLabs Memory System - AI Curated Memory
