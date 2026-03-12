@@ -5,6 +5,316 @@ All notable changes to the Iris System will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.1.0] - 2026-02-16
+
+### 📖 QUICK-START v2.0 — Major Rewrite
+
+Complete overhaul of the onboarding guide to reflect the evolved system architecture.
+
+#### Changed
+- **Architecture Overview**: Added 5-layer diagram (User → Agent → Memory → Model → Runtime)
+- **Phase 2**: Now includes CLAUDE.md setup and proper project instructions
+- **Phase 3**: New — 3-layer memory infrastructure (RLabs + Episodic + QMD local RAG)
+- **Phase 5**: New — CLIProxyAPI model router for unified LLM access
+- **Phase 6**: New — Slack bot setup with Bolt v3 + Socket Mode
+
+#### Added
+- Growth Path table (L1→L4 progressive expansion)
+- Service management rules (LaunchAgent vs PM2, Bun constraints)
+- Improved troubleshooting with `launchctl kickstart` and health checks
+- QMD hybrid search (BM25 + vector + reranking) setup instructions
+
+## [3.0.0] - 2025-12-06
+
+### 🧠 RLabs Memory System - AI Curated Memory
+
+This is a major release introducing an AI-powered memory curation system that automatically decides what's worth remembering across sessions.
+
+#### Added
+
+##### 🧠 RLabs Memory System Integration
+
+A revolutionary memory system that gives Claude Code persistent, cross-session memory with intelligent curation.
+
+- **Core Features**
+  - AI-curated memories (automatically decides what's important)
+  - Trigger phrase detection for smart retrieval
+  - Project isolation via `.memory-project.json`
+  - Session primer for temporal continuity
+  - Importance weighting (0.0-1.0)
+
+- **Technical Stack**
+  - ChromaDB for vector storage
+  - SQLite for metadata and summaries
+  - sentence-transformers (all-MiniLM-L6-v2) for embeddings
+  - FastAPI server on port 8765
+
+- **Claude Code Hooks**
+  - `SessionStart` → Injects session primer + temporal context
+  - `UserPromptSubmit` → Retrieves and injects relevant memories (max 5)
+  - `PreCompact` → Curates memories from transcript
+  - `Stop` → Curates important memories at session end
+
+##### 🔗 Iris ↔ Lucy Shared Memory
+
+Cross-machine memory sharing via Dropbox symlink:
+
+- **Shared Location**: `~/Dropbox/PKM-Vault/.ai-butler-system/rlabs-memory/`
+- **Effect**: Memories curated by Iris are accessible to Lucy and vice versa
+- **Mechanism**: SQLite database symlinked to shared Dropbox folder
+
+##### 📦 New LaunchAgent
+
+- `com.lman.rlabs-memory.plist` - RLabs Memory server (RunAtLoad + KeepAlive)
+
+#### Technical Details
+
+**Installation:**
+```bash
+# Clone RLabs Memory
+git clone https://github.com/RLabs-Inc/memory.git ~/rlabs-memory
+
+# Install dependencies
+cd ~/rlabs-memory && uv sync
+
+# Setup shared memory symlink
+mkdir -p ~/Dropbox/PKM-Vault/.ai-butler-system/rlabs-memory
+ln -sf ~/Dropbox/PKM-Vault/.ai-butler-system/rlabs-memory/memory.db \
+       ~/rlabs-memory/python/memory.db
+
+# Load LaunchAgent
+launchctl load ~/Library/LaunchAgents/com.lman.rlabs-memory.plist
+```
+
+**Memory System Comparison:**
+
+| System | Purpose | Key Feature |
+|--------|---------|-------------|
+| RLabs Memory | AI-curated auto-memory | Trigger phrases, project isolation, sharing |
+| Leo | 25-year document search | Historical decision queries |
+| Episodic Memory | Conversation history | Now integrated as RLabs supplement |
+
+#### Impact
+
+- **Cross-session context**: Iris now remembers important decisions and preferences across conversations
+- **Cross-machine sharing**: Lucy can leverage Iris's memories and vice versa
+- **Reduced repetition**: Less need to re-explain project context in new sessions
+- **Intelligent retrieval**: Only relevant memories are surfaced based on conversation context
+
+---
+
+## [2.7.0] - 2025-11-23
+
+### 🆕 New Development Workflow & Side Projects
+
+This release introduces a new AI collaboration workflow and marks the beginning of Iris-powered side project development.
+
+#### Added
+
+##### 🤝 Google Antigravity Collaboration Mode
+
+A new development workflow that combines Claude Code with Google Antigravity IDE for efficient full-stack development.
+
+- **Workflow Architecture**
+  - Claude Code handles: Backend logic, debugging, deployment, code review, git operations
+  - Antigravity handles: Frontend/UI generation, Google Apps Script, rapid prototyping
+  - Prompt handoff system for seamless collaboration
+
+- **Key Features**
+  - Dual-AI development approach
+  - Specialized task delegation
+  - Faster iteration for UI-heavy projects
+  - Google ecosystem integration (Apps Script, Sheets, Gmail Add-ons)
+
+- **Documentation**
+  - Added `WORKFLOW-ANTIGRAVITY-COLLABORATION.md` to shared-context
+  - Updated iris-memory.md with collaboration patterns
+
+##### 💼 Pipely CRM - Side Project MVP
+
+First side project developed using the new Claude Code + Antigravity workflow.
+
+- **What is Pipely?**
+  - Gmail Add-on for lightweight CRM
+  - "Pipeline in your inbox" - manage deals without leaving Gmail
+  - Slack integration for team collaboration
+  - Google Sheets as database (simple & shareable)
+
+- **Completed MVP Features**
+  - Gmail Add-on sidebar UI
+  - Contact auto-extraction from email headers
+  - Company name inference from email domain
+  - "Add to Pipeline" one-click deal creation
+  - Deal details page with stage management
+  - Pipeline overview grouped by stages
+  - Slack notifications (new deal, stage changes)
+
+- **Technical Stack**
+  - Google Apps Script (Card Service)
+  - Google Sheets as database
+  - Slack Incoming Webhooks
+  - clasp deployment
+
+- **Repository**: https://github.com/lmanchu/pipely
+
+##### 🧠 Model Upgrades
+
+- Upgraded vision model from `qwen2.5vl:3b` to `qwen3-vl:30b` for improved visual analysis
+- Updated all relevant scripts to use the new model
+
+#### Technical Details
+
+**Pipely Architecture:**
+```
+📧 Gmail (Input) → 🗂️ Pipely (管理) → 💬 Slack (協作)
+       ↓
+📊 Google Sheets (Database)
+   ├── Deals Sheet
+   ├── Contacts Sheet
+   ├── Activities Sheet
+   └── Settings Sheet
+```
+
+**Files Created:**
+- `src/Code.gs` - Main entry point
+- `src/Cards.gs` - UI components (Card Service)
+- `src/Sheets.gs` - Google Sheets CRUD operations
+- `src/Gmail.gs` - Email parsing
+- `src/Slack.gs` - Slack webhook integration
+- `src/appsscript.json` - OAuth scopes & triggers
+
+**OAuth Scopes Used:**
+- `gmail.addons.execute` - Gmail Add-on execution
+- `gmail.readonly` - Email header access
+- `spreadsheets` - Google Sheets access
+- `script.external_request` - Slack webhook calls
+- `userinfo.email` - User identification
+
+#### Impact
+
+**Development Efficiency:**
+- Antigravity generated ~928 lines of Apps Script code
+- Claude Code handled deployment debugging and GitHub publishing
+- Total development time: ~4 hours for working MVP
+
+**New Capabilities:**
+- Side project development workflow established
+- Google ecosystem automation expanded
+- Reusable patterns for future Gmail Add-ons
+
+#### Validation
+
+- ✅ Gmail Add-on successfully deployed and tested
+- ✅ Contact details extracted from email headers
+- ✅ Deals created and stored in Google Sheets
+- ✅ Pipeline view showing deals by stage
+- ✅ Published to GitHub: https://github.com/lmanchu/pipely
+
+---
+
+## [2.6.0] - 2025-11-21
+
+### 🚀 Task Queue Watcher - Real-time Collaboration System
+
+**This is the most important update since MAGI System creation!**
+
+#### Core Breakthrough
+- ✅ **Iris ↔ Lucy Real-time Bidirectional Collaboration**
+  - No more manual task syncing between machines
+  - Automatic execution, status updates, and notifications
+- ✅ **Near-instant Response** - 5-30 second delay (Dropbox sync + 10s polling)
+- ✅ **Fully Automated** - Zero human intervention from task creation to completion
+
+#### System Architecture
+```
+    Iris (Home)          TASKS.md (Dropbox)      Lucy (Mobile)
+    ┌──────────┐              ┌─────┐              ┌──────────┐
+    │ Watcher  │◄─────────────┤File │─────────────►│ Watcher  │
+    │ Daemon   │  10s polling │Sync │  10s polling │ Daemon   │
+    └──────────┘              └─────┘              └──────────┘
+         │                                               │
+         │ Auto-Execute                     Auto-Execute│
+         │ tasks assigned                   tasks assigned│
+         │ to Iris                          to Lucy      │
+         ▼                                               ▼
+    [Execute]                                       [Execute]
+    [Update Status]                                 [Update Status]
+    [Notify ✅]                                      [Notify ✅]
+```
+
+#### New Components
+- **Task Queue Watcher**: `~/bin/task-queue-watcher.js` (9.2 KB, 451 lines)
+- **Iris LaunchAgent**: `~/Library/LaunchAgents/com.lman.iris-task-watcher.plist`
+- **Lucy LaunchAgent**: `~/Library/LaunchAgents/com.lman.lucy-task-watcher.plist`
+- **Setup Script**: `~/Dropbox/PKM-Vault/.ai-butler-system/task-queue-watcher-setup/`
+- **Log Files**: `~/.logs/task-queue-watcher.log`
+
+#### Features
+1. **Auto-Execute** - Tasks marked `Auto-Execute: true` run automatically
+2. **Status Tracking** - Pending → In Progress → Completed auto-update
+3. **Result Recording** - Execution time, output, errors recorded to TASKS.md
+4. **Notification System** - macOS Notification Center + iPhone sync
+5. **Error Handling** - Complete exception capture and logging
+
+#### Deployment Status
+- ✅ Iris (Mac Studio M2 Max) - Deployed 2025-11-21 09:36
+- ✅ Lucy (MacBook Air M2) - Deployed 2025-11-21 09:51
+- ⏳ Leo (Windows AIPC) - Pending
+
+#### Validation
+- ✅ TASK-006: Iris-side test successful
+- ✅ TASK-008: Lucy real-time monitoring test successful
+- ✅ TASK-009: Iris→Lucy bidirectional collaboration test successful
+
+---
+
+## [2.5.0] - 2025-11-17
+
+### 🧠 rand-mnemosyne Integration - Semantic Memory System
+
+#### Major Changes
+- ✅ **Integrated rand-mnemosyne** - GitHub rand/mnemosyne v2.3.1 agentic memory system
+- ✅ **Semantic Memory System** - LibSQL vector search providing 100-1000x retrieval speedup
+- ✅ **Shared Memory Repository** - Cross-device semantic memory built on Dropbox
+- ✅ **Multi-Agent Collaboration** - Mnemosyne's 4 specialized agents (Orchestrator, Optimizer, Reviewer, Executor)
+
+#### New Components
+- **rand-mnemosyne CLI**: `~/.local/bin/mnemosyne` (52MB binary)
+- **MAGI System DB**: `~/Dropbox/PKM-Vault/.ai-butler-system/mnemosyne/magi-system.db`
+- **Memory Count**: 30+ memories (280KB database)
+
+#### Architecture Improvements
+- **Dual-Layer Memory System**:
+  - **Old System**: JSON file sync (preserved for backward compatibility)
+  - **New System**: rand-mnemosyne semantic memory (high-speed retrieval)
+- **Dropbox Integration**: All memories auto-sync to MAGI machines via Dropbox
+
+#### Core Functions
+```bash
+# Store semantic memory
+mnemosyne remember "memory content" --importance 5
+
+# Smart retrieval
+mnemosyne recall "search keywords" --limit 5
+
+# System status
+mnemosyne status
+
+# Export memories
+mnemosyne export --format markdown > memories.md
+```
+
+#### Installation
+```bash
+# Official install script (recommended)
+curl -fsSL https://raw.githubusercontent.com/rand/mnemosyne/main/scripts/install/install.sh | bash
+
+# Set environment variable
+export MNEMOSYNE_DB_PATH=~/Dropbox/PKM-Vault/.ai-butler-system/mnemosyne/magi-system.db
+```
+
+---
+
 ## [2.1.0] - 2025-11-01
 
 ### 👁️ Major Feature: Iris Vision System
