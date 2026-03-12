@@ -11,3 +11,8 @@
 # Temporary files
 *.tmp
 temp/
+
+# gstack
+.claude/skills/gstack/node_modules/
+.claude/skills/gstack/browse/dist/
+.claude/skills/gstack/bun.lock
