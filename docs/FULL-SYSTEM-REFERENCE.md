@@ -1,7 +1,7 @@
 # MAGI System Snapshot
 
-**版本**: v2026-03-22
-**生成時間**: 2026-03-21T16:30:05.554Z
+**版本**: v2026-03-29
+**生成時間**: 2026-03-28T16:30:05.729Z
 **記憶檔案版本**: 2026-02-18 (v4.0 - 精簡版，三層記憶時代)
 
 ---
@@ -34,7 +34,7 @@ Model Name: Mac Studio
       Memory: 96 GB
 ```
 
-**macOS 版本**: 26.3.1
+**macOS 版本**: 26.4
 
 ---
 
@@ -221,370 +221,370 @@ Model Name: Mac Studio
 **排程**: 每日 9:00
 
 
-### 28. com.lman.hermes-analytics
+### 28. com.lman.hermes-agent-tg
+
+**檔案**: `com.lman.hermes-agent-tg.plist`
+**排程**: Unknown
+
+
+### 29. com.lman.hermes-analytics
 
 **檔案**: `com.lman.hermes-analytics.plist`
 **排程**: 每日 9:30
 
 
-### 29. com.lman.hermes-health
+### 30. com.lman.hermes-health
 
 **檔案**: `com.lman.hermes-health.plist`
 **排程**: 每日 9:00
 
 
-### 30. com.lman.hermes-pipeline
+### 31. com.lman.hermes-pipeline
 
 **檔案**: `com.lman.hermes-pipeline.plist`
 **排程**: 每日 6:00
 
 
-### 31. com.lman.hermesforx-health
+### 32. com.lman.hermesforx-health
 
 **檔案**: `com.lman.hermesforx-health.plist`
 **排程**: 每日 10:00
 
 
-### 32. com.lman.hermesforx-twitter-00
+### 33. com.lman.hermesforx-twitter-00
 
 **檔案**: `com.lman.hermesforx-twitter-00.plist`
 **排程**: 每日 0:45
 
 
-### 33. com.lman.hermesforx-twitter-01
+### 34. com.lman.hermesforx-twitter-01
 
 **檔案**: `com.lman.hermesforx-twitter-01.plist`
 **排程**: 每日 1:15
 
 
-### 34. com.lman.hermesforx-twitter-02
+### 35. com.lman.hermesforx-twitter-02
 
 **檔案**: `com.lman.hermesforx-twitter-02.plist`
 **排程**: 每日 2:45
 
 
-### 35. com.lman.hermesforx-twitter-03
+### 36. com.lman.hermesforx-twitter-03
 
 **檔案**: `com.lman.hermesforx-twitter-03.plist`
 **排程**: 每日 3:15
 
 
-### 36. com.lman.hermesforx-twitter-04
+### 37. com.lman.hermesforx-twitter-04
 
 **檔案**: `com.lman.hermesforx-twitter-04.plist`
 **排程**: 每日 4:45
 
 
-### 37. com.lman.hermesforx-twitter-05
+### 38. com.lman.hermesforx-twitter-05
 
 **檔案**: `com.lman.hermesforx-twitter-05.plist`
 **排程**: 每日 5:15
 
 
-### 38. com.lman.hermesforx-twitter-06
+### 39. com.lman.hermesforx-twitter-06
 
 **檔案**: `com.lman.hermesforx-twitter-06.plist`
 **排程**: 每日 6:45
 
 
-### 39. com.lman.hermesforx-twitter-07
+### 40. com.lman.hermesforx-twitter-07
 
 **檔案**: `com.lman.hermesforx-twitter-07.plist`
 **排程**: 每日 7:15
 
 
-### 40. com.lman.hermesforx-twitter-08
+### 41. com.lman.hermesforx-twitter-08
 
 **檔案**: `com.lman.hermesforx-twitter-08.plist`
 **排程**: 每日 8:45
 
 
-### 41. com.lman.hermesforx-twitter-09
+### 42. com.lman.hermesforx-twitter-09
 
 **檔案**: `com.lman.hermesforx-twitter-09.plist`
 **排程**: 每日 9:15
 
 
-### 42. com.lman.hermesforx-twitter-10
+### 43. com.lman.hermesforx-twitter-10
 
 **檔案**: `com.lman.hermesforx-twitter-10.plist`
 **排程**: 每日 10:45
 
 
-### 43. com.lman.hermesforx-twitter-23
+### 44. com.lman.hermesforx-twitter-23
 
 **檔案**: `com.lman.hermesforx-twitter-23.plist`
 **排程**: 每日 23:15
 
 
-### 44. com.lman.inbox-archiver
+### 45. com.lman.inbox-archiver
 
 **檔案**: `com.lman.inbox-archiver.plist`
 **排程**: 每日 5:00
 
 
-### 45. com.lman.infra-health
+### 46. com.lman.infra-health
 
 **檔案**: `com.lman.infra-health.plist`
 **排程**: 每 0 小時
 
 
-### 46. com.lman.investment-archiver
+### 47. com.lman.investment-archiver
 
 **檔案**: `com.lman.investment-archiver.plist`
 **排程**: 每日 6:00
 
 
-### 47. com.lman.iris-app-monitor
+### 48. com.lman.iris-app-monitor
 
 **檔案**: `com.lman.iris-app-monitor.plist`
 **排程**: Unknown
 
 
-### 48. com.lman.iris-reminder
+### 49. com.lman.iris-reminder
 
 **檔案**: `com.lman.iris-reminder.plist`
 **排程**: 每日 9:30
 
 
-### 49. com.lman.iris-snapshot
+### 50. com.lman.iris-snapshot
 
 **檔案**: `com.lman.iris-snapshot.plist`
 **排程**: 每日 0:30
 
 
-### 50. com.lman.iris-sync
+### 51. com.lman.iris-sync
 
 **檔案**: `com.lman.iris-sync.plist`
 **排程**: 每日 0:00
 
 
-### 51. com.lman.iris-task-watcher
+### 52. com.lman.iris-task-watcher
 
 **檔案**: `com.lman.iris-task-watcher.plist`
 **排程**: Unknown
 
 
-### 52. com.lman.iris-veda-broker
+### 53. com.lman.iris-veda-broker
 
 **檔案**: `com.lman.iris-veda-broker.plist`
 **排程**: Unknown
 
 
-### 53. com.lman.irisgo-docs-sync
+### 54. com.lman.irisgo-docs-sync
 
 **檔案**: `com.lman.irisgo-docs-sync.plist`
 **排程**: 每 72 小時
 
 
-### 54. com.lman.linkedin-curator-post-0
+### 55. com.lman.linkedin-curator-post-0
 
 **檔案**: `com.lman.linkedin-curator-post-0.plist`
 **排程**: 每日 9:30
 
 
-### 55. com.lman.linkedin-curator-post-1
+### 56. com.lman.linkedin-curator-post-1
 
 **檔案**: `com.lman.linkedin-curator-post-1.plist`
 **排程**: 每日 14:45
 
 
-### 56. com.lman.linkedin-curator-post-2
+### 57. com.lman.linkedin-curator-post-2
 
 **檔案**: `com.lman.linkedin-curator-post-2.plist`
 **排程**: 每日 18:20
 
 
-### 57. com.lman.linkedin-curator-reply-0
+### 58. com.lman.linkedin-curator-reply-0
 
 **檔案**: `com.lman.linkedin-curator-reply-0.plist`
 **排程**: 每日 10:15
 
 
-### 58. com.lman.linkedin-curator-reply-1
+### 59. com.lman.linkedin-curator-reply-1
 
 **檔案**: `com.lman.linkedin-curator-reply-1.plist`
 **排程**: 每日 11:45
 
 
-### 59. com.lman.linkedin-curator-reply-2
+### 60. com.lman.linkedin-curator-reply-2
 
 **檔案**: `com.lman.linkedin-curator-reply-2.plist`
 **排程**: 每日 13:20
 
 
-### 60. com.lman.linkedin-curator-reply-3
+### 61. com.lman.linkedin-curator-reply-3
 
 **檔案**: `com.lman.linkedin-curator-reply-3.plist`
 **排程**: 每日 15:30
 
 
-### 61. com.lman.linkedin-curator-reply-4
+### 62. com.lman.linkedin-curator-reply-4
 
 **檔案**: `com.lman.linkedin-curator-reply-4.plist`
 **排程**: 每日 16:50
 
 
-### 62. com.lman.linkedin-curator-reply-5
+### 63. com.lman.linkedin-curator-reply-5
 
 **檔案**: `com.lman.linkedin-curator-reply-5.plist`
 **排程**: 每日 19:15
 
 
-### 63. com.lman.linkedin-curator-reply-6
+### 64. com.lman.linkedin-curator-reply-6
 
 **檔案**: `com.lman.linkedin-curator-reply-6.plist`
 **排程**: 每日 9:00
 
 
-### 64. com.lman.linkedin-curator-reply-7
+### 65. com.lman.linkedin-curator-reply-7
 
 **檔案**: `com.lman.linkedin-curator-reply-7.plist`
 **排程**: 每日 12:30
 
 
-### 65. com.lman.linkedin-curator-reply-8
+### 66. com.lman.linkedin-curator-reply-8
 
 **檔案**: `com.lman.linkedin-curator-reply-8.plist`
 **排程**: 每日 14:00
 
 
-### 66. com.lman.linkedin-curator-reply-9
+### 67. com.lman.linkedin-curator-reply-9
 
 **檔案**: `com.lman.linkedin-curator-reply-9.plist`
 **排程**: 每日 17:30
 
 
-### 67. com.lman.mission-control-alert
+### 68. com.lman.mission-control-alert
 
 **檔案**: `com.lman.mission-control-alert.plist`
 **排程**: 每日 2:00
 
 
-### 68. com.lman.mission-control-auto-update
+### 69. com.lman.mission-control-auto-update
 
 **檔案**: `com.lman.mission-control-auto-update.plist`
 **排程**: 每日 0:30
 
 
-### 69. com.lman.mission-control-sync
+### 70. com.lman.mission-control-sync
 
 **檔案**: `com.lman.mission-control-sync.plist`
 **排程**: Unknown
 
 
-### 70. com.lman.mlx-qwen35
+### 71. com.lman.mlx-qwen35
 
 **檔案**: `com.lman.mlx-qwen35.plist`
 **排程**: Unknown
 
 
-### 71. com.lman.morning-brief-ak
+### 72. com.lman.morning-brief-ak
 
 **檔案**: `com.lman.morning-brief-ak.plist`
 **排程**: 每日 8:30
 
 
-### 72. com.lman.morning-brief-apollo
+### 73. com.lman.morning-brief-apollo
 
 **檔案**: `com.lman.morning-brief-apollo.plist`
 **排程**: 每日 8:30
 
 
-### 73. com.lman.morning-brief-argus
+### 74. com.lman.morning-brief-argus
 
 **檔案**: `com.lman.morning-brief-argus.plist`
 **排程**: 每日 8:30
 
 
-### 74. com.lman.morning-brief-hermes
+### 75. com.lman.morning-brief-hermes
 
 **檔案**: `com.lman.morning-brief-hermes.plist`
 **排程**: 每日 8:30
 
 
-### 75. com.lman.morning-brief-kitt
+### 76. com.lman.morning-brief-kitt
 
 **檔案**: `com.lman.morning-brief-kitt.plist`
 **排程**: 每日 8:30
 
 
-### 76. com.lman.morning-brief-wells
+### 77. com.lman.morning-brief-wells
 
 **檔案**: `com.lman.morning-brief-wells.plist`
 **排程**: 每日 8:30
 
 
-### 77. com.lman.news-pipeline
+### 78. com.lman.news-pipeline
 
 **檔案**: `com.lman.news-pipeline.plist`
 **排程**: 每日 8:00
 
 
-### 78. com.lman.news-publisher
+### 79. com.lman.news-publisher
 
 **檔案**: `com.lman.news-publisher.plist`
 **排程**: Unknown
 
 
-### 79. com.lman.notebooklm-sync
+### 80. com.lman.notebooklm-sync
 
 **檔案**: `com.lman.notebooklm-sync.plist`
 **排程**: 每 1 小時
 
 
-### 80. com.lman.openclaw-checkins
+### 81. com.lman.openclaw-checkins
 
 **檔案**: `com.lman.openclaw-checkins.plist`
 **排程**: 每日 9:05
 
 
-### 81. com.lman.openclaw-manager
+### 82. com.lman.openclaw-manager
 
 **檔案**: `com.lman.openclaw-manager.plist`
 **排程**: Unknown
 
 
-### 82. com.lman.patlabor-worker
+### 83. com.lman.patlabor-worker
 
 **檔案**: `com.lman.patlabor-worker.plist`
 **排程**: 每 0 小時
 
 
-### 83. com.lman.persona-updater
+### 84. com.lman.persona-updater
 
 **檔案**: `com.lman.persona-updater.plist`
 **排程**: 每日 1:30
 
 
-### 84. com.lman.pkm-intelligence
+### 85. com.lman.pkm-intelligence
 
 **檔案**: `com.lman.pkm-intelligence.plist`
 **排程**: 每日 2:00
 
 
-### 85. com.lman.pm-email-digest-am
+### 86. com.lman.pm-email-digest-am
 
 **檔案**: `com.lman.pm-email-digest-am.plist`
 **排程**: 每日 8:00
 
 
-### 86. com.lman.pm-email-digest-pm
+### 87. com.lman.pm-email-digest-pm
 
 **檔案**: `com.lman.pm-email-digest-pm.plist`
 **排程**: 每日 18:00
 
 
-### 87. com.lman.polyclaw-cfo
+### 88. com.lman.polyclaw-cfo
 
 **檔案**: `com.lman.polyclaw-cfo.plist`
 **排程**: 每日 9:00
-
-
-### 88. com.lman.presenton
-
-**檔案**: `com.lman.presenton.plist`
-**排程**: Unknown
 
 
 ### 89. com.lman.qmd-update
@@ -1036,7 +1036,7 @@ Model Name: Mac Studio
 
 #### 11. humanizer.js
 
-**大小**: 6 KB
+**大小**: 9 KB
 **描述**: Humanizer - Remove AI Writing Patterns
 
 
@@ -1726,6 +1726,6 @@ ollama pull gpt-oss:20b
 
 ---
 
-*生成時間: 2026-03-21T16:30:05.554Z*
+*生成時間: 2026-03-28T16:30:05.729Z*
 *生成器版本: v1.0.0*
 *Iris System - Iris (Melchior)*
