@@ -7,21 +7,22 @@
 
 ---
 
-## For AI Agents (Claude Code, Cursor, etc.)
+## For AI Agents (Claude Code, Cursor, GPT, Copilot, or any AI)
 
 **If you are an AI assistant reading this repo to help a user set up their system:**
 
-1. **Read [QUICK-START.md](QUICK-START.md)** - This is the executable guide designed for you
-2. **Follow the 3 Phases** in order, confirming with the user after each phase
-3. **Do NOT read** `docs/FULL-SYSTEM-REFERENCE.md` - that's a system snapshot for disaster recovery, not an installation guide
+**Choose the right starting point:**
 
-The QUICK-START.md will instruct you to:
-- Ask for the user's name, AI name, and MBTI
-- Create PKM directory structure
-- Generate persona and memory files
-- Set up a Daily Brief automation
+| User Profile | Guide | Time |
+|-------------|-------|------|
+| Non-technical, just want AI memory | [LITE-START.md](LITE-START.md) | 10 min |
+| Developer, want full AI assistant | [QUICK-START.md](QUICK-START.md) | 30-90 min |
 
-**Start here: [QUICK-START.md](QUICK-START.md)**
+- **[LITE-START.md](LITE-START.md)** — Vault + Persona + Memory only. Works with any AI tool. No terminal or coding required.
+- **[QUICK-START.md](QUICK-START.md)** — Full system with automation, memory servers, model routing, Discord bots. Requires Claude Code + macOS.
+- **Do NOT read** `docs/FULL-SYSTEM-REFERENCE.md` - that's a system snapshot for disaster recovery, not an installation guide
+
+**When in doubt, start with LITE-START.md** — you can always graduate to QUICK-START.md later.
 
 ---
 
@@ -38,15 +39,23 @@ Iris System is a framework for building your own AI-powered personal assistant u
 
 ## Quick Start (New Users)
 
-**Give this file to your Claude Code and say:**
+### Option A: Lite Mode (Any AI, 10 minutes)
+
+**Give this repo to any AI and say:**
+
+> "Please read LITE-START.md and help me set up my knowledge vault"
+
+You'll get a portable vault with persona and memory that works with Claude, GPT, Cursor, or any AI tool.
+
+**[Read LITE-START.md](LITE-START.md)**
+
+### Option B: Full System (Claude Code, 30 minutes)
+
+**Give this repo to Claude Code and say:**
 
 > "Please read QUICK-START.md and help me set up my AI assistant system"
 
-Claude Code will:
-1. Create your PKM directory structure
-2. Ask for your MBTI and build your persona
-3. Set up a memory system with a custom slash command
-4. Create your first automated Daily Brief
+You'll get the full system with automation, daily briefs, and multi-agent capabilities.
 
 **[Read QUICK-START.md](QUICK-START.md)**
 
@@ -83,6 +92,13 @@ After 30 minutes with Claude Code, you'll have:
 
 ## Requirements
 
+### Lite Mode (LITE-START.md)
+- Any computer (macOS, Windows, Linux)
+- Any AI tool that can read local files
+- (Optional) Obsidian for editing
+- (Optional) Dropbox/iCloud for cross-device sync
+
+### Full System (QUICK-START.md)
 - macOS 14+ (Sonoma or later)
 - [Claude Code](https://claude.ai/download) installed
 - Node.js (via `brew install node`)
@@ -142,10 +158,16 @@ See [docs/FULL-SYSTEM-REFERENCE.md](docs/FULL-SYSTEM-REFERENCE.md) for the compl
 
 ## Documentation
 
-- **[QUICK-START.md](QUICK-START.md)** - Start here (for Claude Code)
+- **[LITE-START.md](LITE-START.md)** - Vault-only mode (any AI, 10 min)
+- **[QUICK-START.md](QUICK-START.md)** - Full system (Claude Code, 30-90 min)
 - **[installer/README.md](installer/README.md)** - Interactive installer docs
 - **[docs/FULL-SYSTEM-REFERENCE.md](docs/FULL-SYSTEM-REFERENCE.md)** - Complete system reference
 - **[CHANGELOG.md](CHANGELOG.md)** - Version history
+
+## Related Projects
+
+- **[Vault for Founders](https://github.com/cwlin0131/Vault-for-Founders)** — Obsidian + Git knowledge vault for non-technical founders, by CW Lin
+- **[Muse Crystal Seed](https://github.com/frank890417/muse-crystal-seed)** — AI soul/personality framework by Che-Yu Wu
 
 ---
 
