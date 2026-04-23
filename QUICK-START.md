@@ -524,11 +524,9 @@ launchctl load ~/Library/LaunchAgents/com.{{USER_LOWERCASE}}.dailybrief.plist
 
 ```bash
 # Install CLIProxyAPI
-git clone https://github.com/luohy15/y-gui.git ~/cliproxy
+git clone https://github.com/router-for-me/CLIProxyAPI.git ~/cliproxy
 cd ~/cliproxy && npm install
 ```
-
-> **If the repo URL is different**: Search GitHub for "cliproxy" or "cli-proxy-api". The key requirement is an OpenAI-compatible proxy that supports Google OAuth.
 
 **Start CLIProxyAPI:**
 ```bash
