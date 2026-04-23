@@ -523,23 +523,30 @@ launchctl load ~/Library/LaunchAgents/com.{{USER_LOWERCASE}}.dailybrief.plist
 > CLIProxyAPI proxies your existing AI subscriptions (Gemini Advanced, Claude Max) into a single OpenAI-compatible endpoint. Hermes Agent uses this instead of paying per-token API fees.
 
 ```bash
-# Install CLIProxyAPI
-git clone https://github.com/router-for-me/CLIProxyAPI.git ~/cliproxy
-cd ~/cliproxy && npm install
+# Download the latest binary for your platform (macOS Apple Silicon shown)
+VERSION=$(curl -s https://api.github.com/repos/router-for-me/CLIProxyAPI/releases/latest | grep tag_name | cut -d'"' -f4)
+curl -L "https://github.com/router-for-me/CLIProxyAPI/releases/download/${VERSION}/CLIProxyAPI_${VERSION#v}_darwin_arm64.tar.gz" -o /tmp/cliproxy.tar.gz
+mkdir -p ~/cliproxy && tar -xzf /tmp/cliproxy.tar.gz -C ~/cliproxy
+chmod +x ~/cliproxy/cliproxy
+
+# Copy the example config
+curl -L "https://raw.githubusercontent.com/router-for-me/CLIProxyAPI/main/config.example.yaml" -o ~/cliproxy/config.yaml
+```
+
+> **macOS Intel**: change `darwin_arm64` → `darwin_amd64`
+> **Full guide**: https://help.router-for.me/
+
+**Gemini OAuth (one-time, requires browser):**
+```bash
+# This opens a browser window — sign in with your Google account
+~/cliproxy/cliproxy -login
+# After completing, verify credentials saved
+ls ~/cliproxy/auths/   # Should show a .json file
 ```
 
 **Start CLIProxyAPI:**
 ```bash
-node ~/cliproxy/server.js &
-# Should start on port 8317
-curl http://localhost:8317/v1/models
-```
-
-**Gemini OAuth (one-time, requires browser):**
-```bash
-# This opens a browser window — complete the Google login
-node ~/cliproxy/auth.js gemini
-# After completing OAuth, verify:
+~/cliproxy/cliproxy &
 curl http://localhost:8317/v1/models | grep gemini
 # Should show gemini-2.5-flash or similar
 ```
@@ -557,8 +564,9 @@ curl http://localhost:8317/v1/models | grep gemini
     <string>com.{{USER_LOWERCASE}}.cliproxy</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/opt/homebrew/bin/node</string>
-        <string>{{HOME}}/cliproxy/server.js</string>
+        <string>{{HOME}}/cliproxy/cliproxy</string>
+        <string>-config</string>
+        <string>{{HOME}}/cliproxy/config.yaml</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
