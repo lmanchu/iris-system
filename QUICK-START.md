@@ -1,6 +1,6 @@
 # AI Butler Quick Start Guide
 
-**Version**: v2.4.0
+**Version**: v2.5.0
 **Updated**: 2026-04-23
 **Purpose**: Let Claude Code build your complete AI assistant system by reading this guide
 
@@ -498,6 +498,306 @@ launchctl load ~/Library/LaunchAgents/com.{{USER_LOWERCASE}}.dailybrief.plist
 - [ ] Daily Brief tested and working
 - [ ] LaunchAgent scheduled for 7 AM
 
+### Session 4
+- [ ] CLIProxyAPI running (port 8317)
+- [ ] Gemini OAuth completed (one-time browser step)
+- [ ] Hermes Agent installed + connected to CLIProxyAPI
+- [ ] SOUL.md generated from user-persona.md
+- [ ] Telegram bot token configured
+- [ ] QMD search tool wired
+- [ ] Episodic Memory search tool wired
+- [ ] Hermes LaunchAgent running
+
+---
+
+## SESSION 4 — Personal EA Telegram Bot
+**Goal**: A Telegram bot that knows who you are, can search your knowledge base, and runs 24/7.
+**Time**: ~60 minutes | **Token budget**: ~20 messages
+
+> **Prerequisites**: Sessions 1–3 must be complete. You need a Telegram account and a Google account with Gemini Advanced or Google One AI Premium subscription.
+
+---
+
+### Phase 8: CLIProxyAPI — Free AI Compute via OAuth (15 min)
+
+> CLIProxyAPI proxies your existing AI subscriptions (Gemini Advanced, Claude Max) into a single OpenAI-compatible endpoint. Hermes Agent uses this instead of paying per-token API fees.
+
+```bash
+# Install CLIProxyAPI
+git clone https://github.com/luohy15/y-gui.git ~/cliproxy
+cd ~/cliproxy && npm install
+```
+
+> **If the repo URL is different**: Search GitHub for "cliproxy" or "cli-proxy-api". The key requirement is an OpenAI-compatible proxy that supports Google OAuth.
+
+**Start CLIProxyAPI:**
+```bash
+node ~/cliproxy/server.js &
+# Should start on port 8317
+curl http://localhost:8317/v1/models
+```
+
+**Gemini OAuth (one-time, requires browser):**
+```bash
+# This opens a browser window — complete the Google login
+node ~/cliproxy/auth.js gemini
+# After completing OAuth, verify:
+curl http://localhost:8317/v1/models | grep gemini
+# Should show gemini-2.5-flash or similar
+```
+
+> ⚠️ **OAuth requires a browser** — this step cannot be done headlessly. If you're on a remote machine, you'll need a local browser session or X forwarding.
+
+**Create LaunchAgent** at `~/Library/LaunchAgents/com.{{USER_LOWERCASE}}.cliproxy.plist`:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.{{USER_LOWERCASE}}.cliproxy</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/opt/homebrew/bin/node</string>
+        <string>{{HOME}}/cliproxy/server.js</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>{{HOME}}/.logs/cliproxy.log</string>
+    <key>StandardErrorPath</key>
+    <string>{{HOME}}/.logs/cliproxy.log</string>
+</dict>
+</plist>
+```
+
+```bash
+launchctl load ~/Library/LaunchAgents/com.{{USER_LOWERCASE}}.cliproxy.plist
+```
+
+---
+
+### Phase 9: Hermes Agent Install (10 min)
+
+> Hermes Agent (NousResearch) is an open-source AI agent with memory, tool use, and Telegram support. We point it at CLIProxyAPI so it uses your Gemini subscription.
+
+```bash
+# Install via uv (recommended)
+uv tool install hermes-agent
+
+# Or pip
+pip install hermes-agent
+
+# Verify
+hermes --version
+```
+
+**Configure to use CLIProxyAPI:**
+
+Edit `~/.hermes/config.yaml`:
+```yaml
+base_url: http://127.0.0.1:8317/v1
+api_key: magi-proxy-key-2026
+model: gemini-2.5-flash
+```
+
+**Test it works:**
+```bash
+OPENROUTER_BASE_URL=http://127.0.0.1:8317/v1 \
+OPENROUTER_API_KEY=magi-proxy-key-2026 \
+hermes chat -q "What's 2+2?"
+# Should return a response via Gemini
+```
+
+---
+
+### Phase 10: SOUL.md — Persona Generation (10 min)
+
+> SOUL.md is Hermes's system prompt. Claude Code will generate it from your user-persona.md (built in Phase 2).
+
+**Ask Claude Code to generate your SOUL.md:**
+
+```
+Read my persona file at {{VAULT_PATH}}/.ai-butler-system/personas/user-persona.md
+and generate a SOUL.md for my Hermes Agent at ~/.hermes/SOUL.md.
+
+The SOUL.md should:
+- Define the AI's name and role as my Personal Executive Assistant
+- Reference my background, communication preferences, and current focus from the persona
+- Be written in first person as the AI ("I am...")
+- Keep it under 500 words — Hermes prepends this to every conversation
+```
+
+**Verify:**
+```bash
+cat ~/.hermes/SOUL.md
+hermes chat -q "Introduce yourself briefly"
+# Should respond as your personalized EA
+```
+
+---
+
+### Phase 11: Telegram Bot Setup (10 min)
+
+**Create your bot:**
+1. Open Telegram → search `@BotFather`
+2. Send `/newbot`
+3. Follow prompts → get your **bot token** (format: `123456:ABC-DEF...`)
+4. Send `/start` to your new bot to initialize the chat
+
+**Add token to Hermes config:**
+
+Edit `~/.hermes/config.yaml`:
+```yaml
+telegram:
+  enabled: true
+  token: "{{YOUR_BOT_TOKEN}}"
+  allowed_users:
+    - "{{YOUR_TELEGRAM_USER_ID}}"  # Find via @userinfobot
+```
+
+**Test Telegram connection:**
+```bash
+hermes telegram &
+# Send your bot a message in Telegram
+# Should reply within a few seconds
+kill %1
+```
+
+---
+
+### Phase 12: Wire QMD + Episodic Memory as Tools (10 min)
+
+> These two tools let Hermes actively search your knowledge base and past Claude Code sessions on demand.
+
+**Create `~/.hermes/tools/search_pkm.py`:**
+
+```python
+import requests
+
+def search_pkm(query: str) -> str:
+    """Search the local PKM knowledge base (Obsidian vault)."""
+    try:
+        r = requests.post(
+            "http://localhost:7474/query",
+            json={"q": query, "limit": 5},
+            timeout=5
+        )
+        results = r.json().get("results", [])
+        if not results:
+            return "No results found."
+        return "\n\n".join(
+            f"**{r['title']}**\n{r['excerpt']}" for r in results
+        )
+    except Exception as e:
+        return f"PKM search unavailable: {e}"
+```
+
+**Create `~/.hermes/tools/search_sessions.py`:**
+
+```python
+import subprocess, shutil
+
+def search_past_sessions(query: str) -> str:
+    """Search past Claude Code conversation history."""
+    em_js = shutil.which("episodic-memory")
+    if not em_js:
+        # Try plugin cache
+        import glob
+        matches = glob.glob(
+            os.path.expanduser("~/.claude/plugins/**/episodic-memory.js"),
+            recursive=True
+        )
+        if not matches:
+            return "Episodic memory not available."
+        em_js = f"node {matches[0]}"
+    try:
+        result = subprocess.run(
+            [em_js, "search", query, "--mode", "text"],
+            capture_output=True, text=True, timeout=10
+        )
+        return result.stdout.strip() or "No matching sessions found."
+    except Exception as e:
+        return f"Session search unavailable: {e}"
+```
+
+**Register tools in Hermes config:**
+```yaml
+tools:
+  - path: ~/.hermes/tools/search_pkm.py
+    name: search_pkm
+    description: "Search personal knowledge base for notes and documents"
+  - path: ~/.hermes/tools/search_sessions.py
+    name: search_past_sessions
+    description: "Search past AI conversation history"
+```
+
+**Test tools:**
+```bash
+hermes chat -q "Search my notes for anything about IrisGo"
+# Should call search_pkm and return results from your vault
+```
+
+---
+
+### Phase 13: Hermes LaunchAgent (5 min)
+
+**Create `~/Library/LaunchAgents/com.{{USER_LOWERCASE}}.hermes-ea.plist`:**
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.{{USER_LOWERCASE}}.hermes-ea</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/opt/homebrew/bin/uv</string>
+        <string>run</string>
+        <string>hermes</string>
+        <string>telegram</string>
+    </array>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>OPENROUTER_BASE_URL</key>
+        <string>http://127.0.0.1:8317/v1</string>
+        <key>OPENROUTER_API_KEY</key>
+        <string>magi-proxy-key-2026</string>
+        <key>HOME</key>
+        <string>{{HOME}}</string>
+    </dict>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>{{HOME}}/.logs/hermes-ea.log</string>
+    <key>StandardErrorPath</key>
+    <string>{{HOME}}/.logs/hermes-ea.log</string>
+</dict>
+</plist>
+```
+
+```bash
+launchctl load ~/Library/LaunchAgents/com.{{USER_LOWERCASE}}.hermes-ea.plist
+launchctl list | grep hermes-ea  # Confirm running
+
+# Final test — send your bot a message in Telegram:
+# "Search my notes for [any topic in your vault]"
+# It should call search_pkm and reply with results
+```
+
+**✅ Session 4 Complete.** You now have a Personal EA that:
+- Knows who you are (SOUL.md from your persona)
+- Runs on free Gemini compute (via CLIProxyAPI OAuth)
+- Can search your entire knowledge base (QMD)
+- Can recall past AI conversations (Episodic Memory)
+- Available 24/7 on Telegram
+
 ---
 
 ## Growth Path
@@ -559,6 +859,7 @@ which bun    # For Bun-based services
 
 ## Version History
 
+- **v2.5.0** (2026-04-23): Added Session 4 — Personal EA Telegram Bot (CLIProxyAPI + Hermes Agent + SOUL.md + QMD/Episodic tools + LaunchAgent)
 - **v2.4.0** (2026-04-23): Removed RLabs Memory (redundant with L1 auto-memory; maintenance cost > unique value); replaced with Episodic Memory sync LaunchAgent (30 min interval, prevents index drift in long sessions); updated memory architecture to 3-layer (L1 static, L2 episodic, L3 QMD)
 - **v2.3.0** (2026-03-06): Fixed QMD install (PATH for ~/.bun/bin, step-by-step verification); fixed episodic-memory (fallback instructions); improved RLabs setup (Python version fix, error hints); fixed LaunchAgent node path (homebrew default); added troubleshooting for common first-time failures
 - **v2.1.0** (2026-03-02): Split into 3 sessions for Claude Pro users; added QMD pre-run warning; RLabs updated to use `uv sync`; removed PM2 references; added Prerequisites section
