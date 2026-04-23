@@ -541,7 +541,7 @@ curl -L "https://raw.githubusercontent.com/router-for-me/CLIProxyAPI/main/config
 # This opens a browser window — sign in with your Google account
 ~/cliproxy/cliproxy -login
 # After completing, verify credentials saved
-ls ~/cliproxy/auths/   # Should show a .json file
+ls ~/.cli-proxy-api/   # Should show gemini-<email>-<project>.json
 ```
 
 **Start CLIProxyAPI:**
