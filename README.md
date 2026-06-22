@@ -7,13 +7,12 @@
 
 ---
 
-## For AI Agents (Claude Code, Cursor, etc.)
+## For AI Agents (Claude Code, Codex, Cursor, etc.)
 
 **If you are an AI assistant reading this repo to help a user set up their system:**
 
 1. **Read [QUICK-START.md](QUICK-START.md)** - This is the executable guide designed for you
-2. **Follow the 3 Phases** in order, confirming with the user after each phase
-3. **Do NOT read** `docs/FULL-SYSTEM-REFERENCE.md` - that's a system snapshot for disaster recovery, not an installation guide
+2. **Follow the Sessions and Phases** in order, confirming with the user after each phase
 
 The QUICK-START.md will instruct you to:
 - Ask for the user's name, AI name, and MBTI
@@ -136,7 +135,7 @@ After the basics are working, explore these advanced features:
 | Twitter Automation | Auto-engagement | Advanced |
 | Task Queue | Multi-machine sync | Advanced |
 
-See [docs/FULL-SYSTEM-REFERENCE.md](docs/FULL-SYSTEM-REFERENCE.md) for the complete feature list.
+See the **Growth Path** section in [QUICK-START.md](QUICK-START.md) for the full progression.
 
 ---
 
@@ -144,7 +143,6 @@ See [docs/FULL-SYSTEM-REFERENCE.md](docs/FULL-SYSTEM-REFERENCE.md) for the compl
 
 - **[QUICK-START.md](QUICK-START.md)** - Start here (for Claude Code)
 - **[installer/README.md](installer/README.md)** - Interactive installer docs
-- **[docs/FULL-SYSTEM-REFERENCE.md](docs/FULL-SYSTEM-REFERENCE.md)** - Complete system reference
 - **[CHANGELOG.md](CHANGELOG.md)** - Version history
 
 ---

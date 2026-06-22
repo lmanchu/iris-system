@@ -262,7 +262,7 @@ interactive_config() {
     echo ""
 
     INSTALL_MCP=$(ask_yes_no "Install MCP servers (Gmail, Slack, Calendar, Gemini, BrowserOS)?" "y")
-    INSTALL_AUTOMATION=$(ask_yes_no "Install automation scripts (Daily Brief, Twitter Bot, etc.)?" "y")
+    INSTALL_AUTOMATION=$(ask_yes_no "Install automation scripts (Daily Brief, scheduled tasks, etc.)?" "y")
     INSTALL_DASHBOARD=$(ask_yes_no "Install Iris Dashboard?" "y")
     INSTALL_PKM=$(ask_yes_no "Setup PKM system structure?" "y")
 

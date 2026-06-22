@@ -103,7 +103,7 @@
 ## 🔗 快速連結
 
 - **MAGI 系統文檔**: `{{PKM_DIR}}/.ai-butler-system/docs/`
-- **Persona 檔案**: `{{PKM_DIR}}/.ai-butler-system/personas/iris-melchior.json`
+- **Persona 檔案**: `{{PKM_DIR}}/.ai-butler-system/personas/user-persona.md`
 
 ---
 

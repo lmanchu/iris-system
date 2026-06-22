@@ -41,25 +41,14 @@ cd iris-system/installer
 - **Gemini AI MCP** - AI 能力增強
 - **BrowserOS MCP** - Computer Use (瀏覽器自動化)
 
-### 2. 自動化腳本
-- Daily Brief Generator
-- Twitter Auto-Engagement
-- Dayflow Intelligence
-- PKM Intelligence
-- Weekly Review
-- Inbox Archiver
+### 2. Iris Notifier 模組
+- macOS 原生通知整合（`~/iris-notifier.js`）
+- 供你自己的腳本呼叫，發送 success / error / info / warning 通知
 
-### 3. Iris Dashboard
-- 統一的控制面板
-- 即時狀態監控
-- 任務排程管理
-- LaunchAgent 控制
-
-### 4. PKM 系統
+### 3. PKM 系統
 - 目錄結構初始化
-- 記憶檔案建立
-- Persona 配置
-- Slash command 設定
+- 範例記憶檔案建立
+- `/iris` slash command 設定
 
 ## 🔧 安裝後設定
 
@@ -90,21 +79,16 @@ claude
 # 檢查 MCP 伺服器狀態
 claude mcp list
 
-# 檢查 LaunchAgents
-launchctl list | grep com.lman
-
-# 啟動 Dashboard
-cd ~/iris-system/dashboard
-node server.js
-# 訪問 http://localhost:3000
+# 確認 Iris Notifier 已安裝
+ls ~/iris-notifier.js
 ```
 
 ## 📚 文檔
 
 - [完整文檔](../README.md)
-- [MAGI 系統架構](../docs/MAGI-System.md)
-- [API 整合指南](../docs/API-Integration.md)
-- [開發方法論](../docs/Development-Methodology.md)
+- [快速開始](../QUICK-START.md)
+- [記憶系統](../docs/memory-system/iris-memory.md)
+- [開發方法論](../docs/development/methodology.md)
 
 ## 🐛 故障排除
 
@@ -166,18 +150,19 @@ git pull origin main
 
 # 手動移除
 rm -rf ~/.ai-butler-system
-launchctl unload ~/Library/LaunchAgents/com.lman.*.plist
-rm ~/Library/LaunchAgents/com.lman.*.plist
+rm ~/iris-notifier.js
+# 若你曾自行建立 LaunchAgent，移除對應的 plist
+# rm ~/Library/LaunchAgents/<your-label>.plist
 ```
 
 ## 💡 下一步
 
 安裝完成後，你可以：
 
-1. **設定自動化任務** - 配置 Daily Brief, Twitter Bot 等
-2. **自訂 Persona** - 調整 Iris 的人格和行為
+1. **自訂 Persona** - 調整 Iris 的人格和行為
+2. **編輯記憶檔** - 依你的環境調整範例記憶檔
 3. **建立 Slash Commands** - 新增自訂命令
-4. **探索 Computer Use** - 使用 BrowserOS 自動化網頁操作
+4. **設定排程任務** - 用 Iris Notifier 搭配你自己的 LaunchAgent 腳本
 
 ## 📝 版本歷史
 
