@@ -6,7 +6,7 @@ description: Load Iris memory and context
 
 請立即讀取我的記憶檔案並恢復上下文：
 
-@/Users/lman/Dropbox/PKM-Vault/.ai-butler-system/iris-memory.md
+@~/Dropbox/PKM-Vault/.ai-butler-system/iris-memory.md
 
 讀取完畢後，簡短確認以下資訊：
 1. 你的名字（Iris）

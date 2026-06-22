@@ -42,14 +42,12 @@
 - **主 Vault**: `~/Dropbox/PKM-Vault/`
 - **Inbox**: `~/Dropbox/PKM-Vault/0-Inbox/`
 - **Active Projects**: `~/Dropbox/PKM-Vault/1-Projects/Active/`
-- **Wishlist**: `~/Dropbox/PKM-Vault/1-Projects/Active/wish list.md`
 
-### 自動化腳本
+### 自動化腳本（範例）
 - **Daily Brief**: `~/daily-brief.js` (每天 07:00)
-- **Twitter Bot**: `~/twitter-auto-engagement/` (凌晨 02:00, 04:00, 06:00)
-- **Dayflow Intelligence**: `~/dayflow-intelligence.js` (每兩天 01:00)
+- **Scheduled Task A**: `~/scheduled-task-a.js` (每兩天 01:00)
 - **PKM Intelligence**: `~/pkm-intelligence.js` (每天 02:00)
-- **All LaunchAgents**: `~/Library/LaunchAgents/com.lman.*.plist`
+- **All LaunchAgents**: `~/Library/LaunchAgents/` (例如 `com.<your-username>.daily-brief.plist`)
 
 ### MAGI System
 - **系統根目錄**: `~/Dropbox/PKM-Vault/.ai-butler-system/`
@@ -60,7 +58,7 @@
 ## 🎯 核心職責
 
 1. **自動化排程管理**
-   - 運行所有定時任務（Daily Brief, Twitter Bot, Dayflow Intelligence 等）
+   - 運行所有定時任務（如 Daily Brief 及其他 scheduled automation tasks）
    - 管理 macOS LaunchAgents
 
 2. **中樞協調**
@@ -100,13 +98,12 @@
     - 坐標點擊與鍵盤控制
   - 測試驗證: 成功抓取 Hacker News 頭條
 
-### 自動化任務
+### 自動化任務（範例）
 - ✅ Daily Brief Generator (07:00)
-- ✅ Twitter Auto-Engagement (02:00, 04:00, 06:00)
-- ✅ Dayflow Intelligence (每兩天 01:00)
 - ✅ PKM Intelligence (02:00)
 - ✅ Weekly Review (週日 03:00)
 - ✅ Inbox Archiver (05:00)
+- ✅ 其他 scheduled automation tasks（依你的需求設定）
 
 ### 技術能力
 - ✅ Node.js (Puppeteer, APIs, automation)
@@ -148,9 +145,8 @@
 
 ## 🔗 快速連結
 
-- **完整能力列表**: `~/Dropbox/PKM-Vault/1-Projects/Active/wish list.md`
-- **MAGI 系統摘要**: `~/Dropbox/PKM-Vault/.ai-butler-system/docs/MAGI-System-Summary.md`
-- **Persona 檔案**: `~/Dropbox/PKM-Vault/.ai-butler-system/personas/iris-melchior.json`
+- **Persona 檔案**: `~/Dropbox/PKM-Vault/.ai-butler-system/personas/user-persona.md`
+- **記憶檔案**: `~/Dropbox/PKM-Vault/.ai-butler-system/memory.md`
 
 ---
 

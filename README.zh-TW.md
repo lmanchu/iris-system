@@ -1,299 +1,167 @@
-# 🧠 Iris System
+# Iris System
 
-> 基於 Claude Code 構建的 AI 個人助理系統
+> 用 Claude Code 在 30 分鐘內建立你自己的 AI 個人助理
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![MAGI System](https://img.shields.io/badge/MAGI-System-purple)](https://github.com/lmanchu/iris-system)
-[![Built with Claude Code](https://img.shields.io/badge/Built%20with-Claude%20Code-blue)](https://claude.ai/code)
+[![Made with Claude Code](https://img.shields.io/badge/Made%20with-Claude%20Code-blueviolet)](https://claude.ai/claude-code)
 
 [English](./README.md) | 繁體中文
 
 ---
 
-## 📖 什麼是 Iris？
+## 給 AI Agent（Claude Code、Codex、Cursor 等）
 
-**Iris** 是一個基於 **Claude Code** 構建的 AI 助理系統，作為 **MAGI System**（三位一體 AI 協作工作站架構）的核心組件。
+**如果你是正在讀這個 repo、要協助使用者設定系統的 AI 助理：**
 
-Iris（代號：**Melchior**）的特點：
-- **科學家人格** - 理性、數據驅動、邏輯思考
-- **24/7 運行** - 在 Mac Studio M2 Ultra 上作為「真理之源」
-- **自動化大師** - 管理排程任務、重度運算和系統協調
+1. **閱讀 [QUICK-START.md](QUICK-START.md)** — 這份是專為你設計的可執行指南
+2. **依序執行裡面的 Sessions 與 Phases**，每個 phase 完成後跟使用者確認
 
----
+QUICK-START.md 會指示你：
+- 詢問使用者的名字、AI 的名字，以及 MBTI
+- 建立 PKM 目錄結構
+- 產生 persona 與記憶檔案
+- 設定 Daily Brief 自動化
 
-## 🤖 MAGI System 架構
-
-**MAGI System**（靈感來自《新世紀福音戰士》）由三台 AI 工作站組成，每台都有獨特的人格：
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                      MAGI System                             │
-│                  三位一體 AI 協作系統                          │
-└─────────────────────────────────────────────────────────────┘
-                              │
-              ┌───────────────┼───────────────┐
-              │               │               │
-    ┌─────────▼─────────┐ ┌──▼───────────┐ ┌─▼────────────┐
-    │  Iris (Melchior)  │ │MAGI(Balthasar)│ │Clippy(Caspar)│
-    │  Mac Studio M2    │ │ MacBook Air M4│ │ Windows AIPC │
-    │     Ultra         │ │               │ │              │
-    │  科學家人格        │ │  母親人格      │ │   女性人格    │
-    │  理性·數據驅動    │ │  關懷·直覺     │ │  情感·創意   │
-    └───────────────────┘ └───────────────┘ └──────────────┘
-```
-
-### 三種人格
-
-1. **Iris (Melchior)** - 科學家人格
-   - Mac Studio M2 Ultra, 64GB+ RAM
-   - 理性、數據驅動的決策
-   - 重度運算和自動化
-
-2. **MAGI (Balthasar)** - 母親人格
-   - MacBook Air M4
-   - 關懷、直覺、全局觀
-   - 移動工作站，專注使用者體驗
-
-3. **Clippy (Caspar)** - 女性人格
-   - Windows AIPC
-   - 情感、創意、同理心
-   - 備援系統、社交媒體管理
+**從這裡開始：[QUICK-START.md](QUICK-START.md)**
 
 ---
 
-## ✨ 核心能力
+## 什麼是 Iris System？
 
-### API 整合
-- ✅ Gmail (via MCP)
-- ✅ Slack (via MCP)
-- ✅ Google Calendar (via MCP)
-- ✅ Gemini AI (via MCP & 直接 API)
-- ✅ BrowserOS (via MCP) - Chromium 瀏覽器自動化
+Iris System 是一個用 Claude Code 建立你自己 AI 個人助理的框架。它提供：
 
-### 自動化任務
-- ✅ 每日簡報生成器 (07:00)
-- ✅ Twitter 自動互動 (02:00, 04:00, 06:00)
-- ✅ Dayflow Intelligence (每兩天 01:00)
-- ✅ PKM Intelligence (02:00)
-- ✅ 每週回顧 (週日 03:00)
-- ✅ Inbox 歸檔 (05:00)
-
-### 開發專案
-- ✅ **[Iris EPUB Reader](https://github.com/lmanchu/iris-epub-reader)** - EPUB 閱讀器 + TTS
-- ✅ **[Iris Immersive Translate](https://github.com/lmanchu/iris-immersive-translate)** - 本地 AI 翻譯 Chrome Extension
-- ✅ **Iris Notifier** - macOS 原生通知系統
-- ✅ **Daily Brief** - 自動化每日簡報系統
-- ✅ **Twitter Bot** - 社交媒體自動化
+- **PKM 整合** — 無縫整合 Obsidian vault
+- **Persona 系統** — 以 MBTI 為基礎，為你的 AI 做個人化設定
+- **記憶系統** — 跨對話保留上下文
+- **每日自動化** — 自動產生每日簡報、任務追蹤等
 
 ---
 
-## 📂 Repository 結構
+## 快速開始（新使用者）
+
+**把這個檔案交給你的 Claude Code，然後說：**
+
+> 「請閱讀 QUICK-START.md，協助我設定我的 AI 助理系統」
+
+Claude Code 會：
+1. 建立你的 PKM 目錄結構
+2. 詢問你的 MBTI 並建立你的 persona
+3. 設定記憶系統，搭配一個自訂的 slash command
+4. 建立你的第一份自動化 Daily Brief
+
+**[閱讀 QUICK-START.md](QUICK-START.md)**
+
+---
+
+## 你會得到什麼
+
+跟 Claude Code 花 30 分鐘之後，你會擁有：
 
 ```
-iris-system/
-├── README.md                    # 英文版
-├── README.zh-TW.md             # 繁體中文版
-├── docs/
-│   ├── magi-system/
-│   │   ├── architecture.md      # MAGI System 完整架構
-│   │   ├── architecture.zh-TW.md
-│   │   ├── personas.md          # 三種人格詳解
-│   │   └── personas.zh-TW.md
-│   ├── memory-system/
-│   │   ├── iris-memory.md       # Iris 長期記憶
-│   │   ├── slash-command.md     # Slash command 系統
-│   │   └── context-loading.md   # 記憶載入機制
-│   ├── development/
-│   │   ├── methodology.md       # 開發方法論
-│   │   ├── methodology.zh-TW.md
-│   │   ├── case-studies.md      # 實際專案案例
-│   │   └── case-studies.zh-TW.md
-│   └── api-integrations/
-│       ├── mcp-setup.md         # MCP 伺服器配置
-│       └── mcp-setup.zh-TW.md
-├── templates/
-│   ├── slash-command-template.md
-│   ├── memory-template.md
-│   └── persona-template.json
-└── examples/
-    ├── daily-brief-example.md
-    ├── project-development.md
-    └── automation-examples.md
+~/Dropbox/PKM-Vault/
+├── 0-Inbox/                    # 每日簡報會落在這裡
+├── 1-Projects/Active/          # 活躍專案追蹤
+├── 2-Areas/                    # 生活領域（工作、健康等）
+├── 3-Resources/                # 參考資料
+├── 4-Archives/                 # 已完成的專案
+└── .ai-butler-system/          # AI 系統設定
+    ├── memory.md               # AI 的持久記憶
+    ├── config.json             # 系統設定
+    └── personas/
+        └── user-persona.md     # 你以 MBTI 為基礎的 persona
+
+~/.claude/commands/
+└── butler.md                   # 你的 /butler slash command
+
+~/bin/
+└── daily-brief.js              # 自動產生每日簡報
+
+~/Library/LaunchAgents/
+└── com.user.dailybrief.plist   # 每天早上 07:00 執行
 ```
 
 ---
 
-## 🚀 快速開始
+## 系統需求
 
-### 對於使用者：了解 Iris
-
-1. **閱讀架構文檔**
-   - 從 [MAGI System 架構](./docs/magi-system/architecture.zh-TW.md) 開始
-   - 理解 [三種人格](./docs/magi-system/personas.zh-TW.md)
-
-2. **探索記憶系統**
-   - 了解 [Iris 記憶](./docs/memory-system/iris-memory.md) 如何運作
-   - 學習 [Slash Commands](./docs/memory-system/slash-command.md)
-
-3. **研究開發案例**
-   - 查看 [案例研究](./docs/development/case-studies.zh-TW.md) 中的真實範例
-   - 學習 [開發方法論](./docs/development/methodology.zh-TW.md)
-
-### 對於開發者：建立你自己的 AI 助理
-
-1. **使用模板**
-   - 複製 [記憶模板](./templates/memory-template.md)
-   - 調整 [Slash Command 模板](./templates/slash-command-template.md)
-   - 自訂 [Persona 模板](./templates/persona-template.json)
-
-2. **設置你的系統**
-   - 遵循 [MCP 設置指南](./docs/api-integrations/mcp-setup.zh-TW.md)
-   - 配置你偏好的整合
-
-3. **從小處著手**
-   - 從一個自動化任務開始
-   - 逐步建立記憶系統
-   - 迭代擴展能力
+- macOS 14+（Sonoma 或更新版本）
+- 已安裝 [Claude Code](https://claude.ai/download)
+- Node.js（透過 `brew install node`）
+- （選用）Dropbox 用於同步
+- （選用）Obsidian 用於 PKM
 
 ---
 
-## 🎯 實際案例
+## 安裝方式
 
-### 案例 1：Iris Immersive Translate 開發
+### 方式 1：讓你的 agent 幫你做（推薦）
 
-**時程：** 2025-11-01（從概念到完成 6 小時）
+1. Clone 這個 repo，或下載 QUICK-START.md
+2. 開啟 Claude Code（或 Codex）
+3. 說：「請閱讀 QUICK-START.md，幫我設定我的 AI 助理」
+4. 回答 agent 的問題（名字、MBTI 等）
+5. 完成！
 
-**Iris 完成的工作：**
-1. 研究沉浸式翻譯和 Ollama 整合
-2. 設計 Chrome Extension 架構（Manifest V3）
-3. 實現翻譯功能（選取 + 整頁）
-4. 解決 CORS 問題，配置 macOS LaunchAgent
-5. 創建完整文檔
-6. 發布到 GitHub 並進行版本管理
+### 方式 2：手動設定
 
-**成果：** 功能完整的 Chrome Extension 及完善文檔
-
-**了解更多：** [Iris Immersive Translate Repository](https://github.com/lmanchu/iris-immersive-translate)
+詳見 [QUICK-START.md](QUICK-START.md) 的逐步說明，自己照著做。
 
 ---
 
-### 案例 2：每日簡報自動化
+## 設定完成後
 
-**功能：**
-- 每天早上 07:00 運行
-- 從行事曆、Gmail、任務收集數據
-- 生成結構化的每日簡報
-- 發送 macOS 通知
+系統開始運行後，你可以：
 
-**運作方式：**
-1. Iris 透過 `/iris` slash command 載入記憶和上下文
-2. 透過 LaunchAgent 執行（排程任務）
-3. 使用 MCP 整合收集數據
-4. 格式化並傳遞簡報
+1. **使用你的 slash command** — 輸入 `/butler`（或你 AI 的名字）來還原上下文
+2. **查看你的 Daily Brief** — 每天早上自動在 Obsidian 開啟
+3. **擴充能力** — 加入 Gmail、Slack、Calendar 整合
 
 ---
 
-## 💡 哲學思考
+## 擴充你的系統
 
-### 為什麼是 MAGI System？
+基礎功能跑起來後，可以探索這些進階功能：
 
-靈感來自《新世紀福音戰士》的 MAGI 超級電腦：
+| 功能 | 用途 | 難度 |
+|------|------|------|
+| Gmail MCP | 在 Daily Brief 中加入郵件摘要 | 簡單 |
+| Google Calendar MCP | 自動載入今日行程 | 簡單 |
+| Slack MCP | 團隊訊息摘要 | 中等 |
+| 投資追蹤 | 股票／加密貨幣監控 | 中等 |
+| Twitter 自動化 | 自動互動 | 進階 |
+| 任務佇列 | 多機器同步 | 進階 |
 
-> "MAGI 由三個獨立的 AI 系統組成，分別代表科學家、母親和女性人格。重要決策需要至少兩個系統同意。"
-
-這種設計帶來：
-- **多元視角** - 理性、直覺、情感的觀點
-- **平衡決策** - 避免單一觀點的偏差
-- **容錯機制** - 一台故障不影響運作
-- **負載分散** - 任務分散到各系統
-
-### AI 作為共同創造者
-
-Iris 展示了 **AI 助理可以是創造者，而不只是工具**：
-- 設計系統
-- 撰寫代碼
-- 解決問題
-- 創建文檔
-- 管理專案
-
-人類提供方向和反饋。AI 提供執行和創造力。
+完整的進階路徑請見 [QUICK-START.md](QUICK-START.md) 的 **Growth Path** 章節。
 
 ---
 
-## 📚 文檔
+## 文件
 
-### MAGI System
-- [完整架構](./docs/magi-system/architecture.zh-TW.md)
-- [三種人格詳解](./docs/magi-system/personas.zh-TW.md)
-- [協作機制](./docs/magi-system/collaboration.zh-TW.md)
-
-### 記憶系統
-- [Iris 長期記憶](./docs/memory-system/iris-memory.md)
-- [Slash Command 系統](./docs/memory-system/slash-command.md)
-- [上下文載入](./docs/memory-system/context-loading.md)
-
-### 開發
-- [開發方法論](./docs/development/methodology.zh-TW.md)
-- [案例研究](./docs/development/case-studies.zh-TW.md)
-- [最佳實踐](./docs/development/best-practices.zh-TW.md)
-
-### API 整合
-- [MCP 設置指南](./docs/api-integrations/mcp-setup.zh-TW.md)
-- [Gmail 整合](./docs/api-integrations/gmail-integration.zh-TW.md)
-- [Slack 整合](./docs/api-integrations/slack-integration.zh-TW.md)
-- [BrowserOS 設置](./docs/api-integrations/browseros-setup.zh-TW.md)
+- **[QUICK-START.md](QUICK-START.md)** — 從這裡開始（給 Claude Code）
+- **[開發方法論](docs/development/methodology.zh-TW.md)** — 用 AI 協作開發的方法
+- **[記憶系統](docs/memory-system/)** — 記憶與 slash command 的運作機制
+- **[CHANGELOG.md](CHANGELOG.md)** — 版本紀錄
 
 ---
 
-## 🛠️ 技術棧
+## 關於
 
-- **平台：** macOS (Mac Studio M2 Ultra)
-- **AI：** Claude Code (Anthropic)
-- **自動化：** Node.js, macOS LaunchAgent
-- **整合：** MCP (Model Context Protocol)
-- **儲存：** Dropbox（共享上下文同步）
-- **版本控制：** Git + GitHub
+Iris System 由 [Lman](https://github.com/lmanchu) 建立，是 MAGI 專案（多 AI 協作系統）的一部分。
+
+「Iris」這個名字源自《新世紀福音戰士》中的 MAGI 超級電腦，代表「Melchior」人格 — 理性、數據驅動、邏輯思考。
 
 ---
 
-## 🤝 貢獻
+## 貢獻
 
-這是一個個人 AI 助理系統，但方法論和模板開放供他人學習和調整。
-
-歡迎：
-- 使用模板建立你自己的 AI 助理
-- 從案例研究中學習
-- 根據你的需求調整方法論
-- 分享你自己的經驗
+歡迎提出 Issue 與 PR！送出前請先閱讀我們的貢獻指南。
 
 ---
 
-## 📄 授權
+## 授權
 
-MIT License - 參見 [LICENSE](./LICENSE) 文件
-
----
-
-## 🔗 相關專案
-
-### 由 Iris 開發：
-- **[Iris Immersive Translate](https://github.com/lmanchu/iris-immersive-translate)** - 本地 AI 翻譯 Chrome Extension
-- **[Iris EPUB Reader](https://github.com/lmanchu/iris-epub-reader)** - EPUB 閱讀器 + TTS 系統
-- 更多專案即將推出...
+MIT License — 詳見 [LICENSE](LICENSE)。
 
 ---
 
-## 📧 聯絡
-
-- **GitHub:** [lmanchu](https://github.com/lmanchu)
-- **Issues:** [回報問題](https://github.com/lmanchu/iris-system/issues)
-
----
-
-**創建者：** Iris (Melchior) + lmanchu
-**最後更新：** 2025-11-01
-**狀態：** 積極開發中
-
----
-
-*"真理存在於多元視角的綜合之中。"*
+*用 Claude Code 打造 | 為 MAGI System 社群設計*
