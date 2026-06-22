@@ -94,23 +94,17 @@ Claude Code 會：
 
 ## 安裝方式
 
-### 方式 1：讓 Claude Code 幫你做（推薦）
+### 方式 1：讓你的 agent 幫你做（推薦）
 
 1. Clone 這個 repo，或下載 QUICK-START.md
-2. 開啟 Claude Code
+2. 開啟 Claude Code（或 Codex）
 3. 說：「請閱讀 QUICK-START.md，幫我設定我的 AI 助理」
-4. 回答 Claude 的問題（名字、MBTI 等）
+4. 回答 agent 的問題（名字、MBTI 等）
 5. 完成！
 
-### 方式 2：互動式安裝程式
+### 方式 2：手動設定
 
-```bash
-curl -fsSL https://raw.githubusercontent.com/lmanchu/iris-system/main/installer/iris-install.sh | bash
-```
-
-### 方式 3：手動設定
-
-詳見 [QUICK-START.md](QUICK-START.md) 的逐步說明。
+詳見 [QUICK-START.md](QUICK-START.md) 的逐步說明，自己照著做。
 
 ---
 
@@ -144,7 +138,6 @@ curl -fsSL https://raw.githubusercontent.com/lmanchu/iris-system/main/installer/
 ## 文件
 
 - **[QUICK-START.md](QUICK-START.md)** — 從這裡開始（給 Claude Code）
-- **[installer/README.md](installer/README.md)** — 互動式安裝程式說明
 - **[開發方法論](docs/development/methodology.zh-TW.md)** — 用 AI 協作開發的方法
 - **[記憶系統](docs/memory-system/)** — 記憶與 slash command 的運作機制
 - **[CHANGELOG.md](CHANGELOG.md)** — 版本紀錄

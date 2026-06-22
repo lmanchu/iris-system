@@ -92,23 +92,17 @@ After 30 minutes with Claude Code, you'll have:
 
 ## Installation Options
 
-### Option 1: Let Claude Code Do It (Recommended)
+### Option 1: Let Your Agent Do It (Recommended)
 
 1. Clone this repo or download QUICK-START.md
-2. Open Claude Code
+2. Open Claude Code (or Codex)
 3. Say: "Please read QUICK-START.md and set up my AI assistant"
-4. Answer Claude's questions (name, MBTI, etc.)
+4. Answer the agent's questions (name, MBTI, etc.)
 5. Done!
 
-### Option 2: Interactive Installer
+### Option 2: Manual Setup
 
-```bash
-curl -fsSL https://raw.githubusercontent.com/lmanchu/iris-system/main/installer/iris-install.sh | bash
-```
-
-### Option 3: Manual Setup
-
-See [QUICK-START.md](QUICK-START.md) for step-by-step instructions.
+See [QUICK-START.md](QUICK-START.md) for step-by-step instructions you can follow yourself.
 
 ---
 
@@ -142,7 +136,6 @@ See the **Growth Path** section in [QUICK-START.md](QUICK-START.md) for the full
 ## Documentation
 
 - **[QUICK-START.md](QUICK-START.md)** - Start here (for Claude Code)
-- **[installer/README.md](installer/README.md)** - Interactive installer docs
 - **[CHANGELOG.md](CHANGELOG.md)** - Version history
 
 ---
