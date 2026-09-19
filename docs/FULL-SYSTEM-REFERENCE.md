@@ -1,7 +1,7 @@
 # MAGI System Snapshot
 
-**版本**: v2026-09-13
-**生成時間**: 2026-09-12T16:30:06.123Z
+**版本**: v2026-09-20
+**生成時間**: 2026-09-19T16:30:05.653Z
 **記憶檔案版本**: 2026-02-18 (v4.0 - 精簡版，三層記憶時代)
 
 ---
@@ -34,7 +34,7 @@ Model Name: Mac Studio
       Memory: 96 GB
 ```
 
-**macOS 版本**: 26.6.2
+**macOS 版本**: 27.0
 
 ---
 
@@ -832,7 +832,7 @@ Model Name: Mac Studio
 
 ## 📜 自動化腳本清單
 
-共 95 個腳本：
+共 96 個腳本：
 
 ### ~/bin/ 目錄腳本
 
@@ -878,223 +878,229 @@ Model Name: Mac Studio
 **描述**: No description
 
 
-#### 8. clean-dropbox-conflicts.sh
-
-**大小**: 0 KB
-**描述**: No description
-
-
-#### 9. cliproxy-health.sh
+#### 8. claude-auth-env.sh
 
 **大小**: 2 KB
 **描述**: No description
 
 
-#### 10. fetch-url.js
+#### 9. clean-dropbox-conflicts.sh
+
+**大小**: 0 KB
+**描述**: No description
+
+
+#### 10. cliproxy-health.sh
+
+**大小**: 2 KB
+**描述**: No description
+
+
+#### 11. fetch-url.js
 
 **大小**: 6 KB
 **描述**: fetch-url.js — Lightweight URL content fetcher
 
 
-#### 11. generate-daily-token-report.js
+#### 12. generate-daily-token-report.js
 
 **大小**: 16 KB
 **描述**: Daily Token Usage Report Generator
 
 
-#### 12. generate-iris-snapshot.js
+#### 13. generate-iris-snapshot.js
 
 **大小**: 21 KB
 **描述**: MAGI System Snapshot Generator
 
 
-#### 13. generate-magi-snapshot.js
+#### 14. generate-magi-snapshot.js
 
 **大小**: 17 KB
 **描述**: MAGI System Snapshot Generator
 
 
-#### 14. generate-slack-summary.js
+#### 15. generate-slack-summary.js
 
 **大小**: 13 KB
 **描述**: Iris - Slack Daily Summary Generator
 
 
-#### 15. generate-token-monthly-report.js
+#### 16. generate-token-monthly-report.js
 
 **大小**: 13 KB
 **描述**: Token Monthly Report Generator
 
 
-#### 16. generate-token-weekly-report.js
+#### 17. generate-token-weekly-report.js
 
 **大小**: 11 KB
 **描述**: Token Weekly Report Generator
 
 
-#### 17. google-docs-auth.js
+#### 18. google-docs-auth.js
 
 **大小**: 3 KB
 **描述**: Google Docs OAuth Authorization
 
 
-#### 18. humanizer.js
+#### 19. humanizer.js
 
 **大小**: 16 KB
 **描述**: Humanizer - Remove AI Writing Patterns
 
 
-#### 19. local-model-token-tracker.js
+#### 20. local-model-token-tracker.js
 
 **大小**: 16 KB
 **描述**: Local Model Token Tracker
 
 
-#### 20. log-social-interaction.js
+#### 21. log-social-interaction.js
 
 **大小**: 3 KB
 **描述**: Social Media Interaction Logger
 
 
-#### 21. oci-grab-a1.sh
+#### 22. oci-grab-a1.sh
 
 **大小**: 4 KB
 **描述**: No description
 
 
-#### 22. oci-setup-forum.sh
+#### 23. oci-setup-forum.sh
 
 **大小**: 3 KB
 **描述**: No description
 
 
-#### 23. ollama-zombie-check.sh
+#### 24. ollama-zombie-check.sh
 
 **大小**: 4 KB
 **描述**: No description
 
 
-#### 24. organize-action-items.sh
+#### 25. organize-action-items.sh
 
 **大小**: 6 KB
 **描述**: No description
 
 
-#### 25. parse-sync-list.js
+#### 26. parse-sync-list.js
 
 **大小**: 4 KB
 **描述**: Parse Google Docs Sync List (Markdown) → JSON Config
 
 
-#### 26. presenton-gen.sh
+#### 27. presenton-gen.sh
 
 **大小**: 2 KB
 **描述**: No description
 
 
-#### 27. process-youtube-course.js
+#### 28. process-youtube-course.js
 
 **大小**: 13 KB
 **描述**: YouTube Course Processor
 
 
-#### 28. production-token-tracker.js
+#### 29. production-token-tracker.js
 
 **大小**: 15 KB
 **描述**: Production Token Tracker
 
 
-#### 29. pull-from-google-docs.js
+#### 30. pull-from-google-docs.js
 
 **大小**: 4 KB
 **描述**: Pull from Google Docs to Markdown
 
 
-#### 30. push-to-google-docs.js
+#### 31. push-to-google-docs.js
 
 **大小**: 7 KB
 **描述**: Push Markdown to Google Docs
 
 
-#### 31. qmd-weekly-update.sh
+#### 32. qmd-weekly-update.sh
 
 **大小**: 1 KB
 **描述**: No description
 
 
-#### 32. sync-all-docs.js
+#### 33. sync-all-docs.js
 
 **大小**: 9 KB
 **描述**: Sync All Tracked Documents
 
 
-#### 33. sync-irisgoop.sh
+#### 34. sync-irisgoop.sh
 
 **大小**: 4 KB
 **描述**: No description
 
 
-#### 34. sync-markdown-to-gdocs.js
+#### 35. sync-markdown-to-gdocs.js
 
 **大小**: 7 KB
 **描述**: Sync Markdown ↔ Google Docs
 
 
-#### 35. sync-obsidian-to-tandem.js
+#### 36. sync-obsidian-to-tandem.js
 
 **大小**: 7 KB
 **描述**: Sync Obsidian directory to Tandem (Improved v2.0)
 
 
-#### 36. task-queue-watcher.js
+#### 37. task-queue-watcher.js
 
 **大小**: 9 KB
 **描述**: MAGI Task Queue Watcher
 
 
-#### 37. token-tracking-integration-example.js
+#### 38. token-tracking-integration-example.js
 
 **大小**: 8 KB
 **描述**: Token Tracking Integration Example
 
 
-#### 38. track-social-media.js
+#### 39. track-social-media.js
 
 **大小**: 7 KB
 **描述**: IrisGo Social Media Tracker
 
 
-#### 39. twitter-resume-reminder.sh
+#### 40. twitter-resume-reminder.sh
 
 **大小**: 1 KB
 **描述**: No description
 
 
-#### 40. update-google-doc-v2.js
+#### 41. update-google-doc-v2.js
 
 **大小**: 13 KB
 **描述**: Update Existing Google Docs v2
 
 
-#### 41. update-google-doc.js
+#### 42. update-google-doc.js
 
 **大小**: 7 KB
 **描述**: Update Existing Google Docs
 
 
-#### 42. update-screenshot-latest.sh
+#### 43. update-screenshot-latest.sh
 
 **大小**: 0 KB
 **描述**: No description
 
 
-#### 43. verify-inbox-cleanup.js
+#### 44. verify-inbox-cleanup.js
 
 **大小**: 10 KB
 **描述**: Inbox Cleanup Verification Script
 
 
-#### 44. wiki-weekly-health.sh
+#### 45. wiki-weekly-health.sh
 
 **大小**: 5 KB
 **描述**: No description
@@ -1660,6 +1666,6 @@ ollama pull gpt-oss:20b
 
 ---
 
-*生成時間: 2026-09-12T16:30:06.123Z*
+*生成時間: 2026-09-19T16:30:05.653Z*
 *生成器版本: v1.0.0*
 *Iris System - Iris (Melchior)*
