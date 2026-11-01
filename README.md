@@ -7,13 +7,12 @@
 
 ---
 
-## For AI Agents (Claude Code, Cursor, etc.)
+## For AI Agents (Claude Code, Codex, Cursor, etc.)
 
 **If you are an AI assistant reading this repo to help a user set up their system:**
 
 1. **Read [QUICK-START.md](QUICK-START.md)** - This is the executable guide designed for you
-2. **Follow the 3 Phases** in order, confirming with the user after each phase
-3. **Do NOT read** `docs/FULL-SYSTEM-REFERENCE.md` - that's a system snapshot for disaster recovery, not an installation guide
+2. **Follow the Sessions and Phases** in order, confirming with the user after each phase
 
 The QUICK-START.md will instruct you to:
 - Ask for the user's name, AI name, and MBTI
@@ -93,23 +92,17 @@ After 30 minutes with Claude Code, you'll have:
 
 ## Installation Options
 
-### Option 1: Let Claude Code Do It (Recommended)
+### Option 1: Let Your Agent Do It (Recommended)
 
 1. Clone this repo or download QUICK-START.md
-2. Open Claude Code
+2. Open Claude Code (or Codex)
 3. Say: "Please read QUICK-START.md and set up my AI assistant"
-4. Answer Claude's questions (name, MBTI, etc.)
+4. Answer the agent's questions (name, MBTI, etc.)
 5. Done!
 
-### Option 2: Interactive Installer
+### Option 2: Manual Setup
 
-```bash
-curl -fsSL https://raw.githubusercontent.com/lmanchu/iris-system/main/installer/iris-install.sh | bash
-```
-
-### Option 3: Manual Setup
-
-See [QUICK-START.md](QUICK-START.md) for step-by-step instructions.
+See [QUICK-START.md](QUICK-START.md) for step-by-step instructions you can follow yourself.
 
 ---
 
@@ -136,15 +129,13 @@ After the basics are working, explore these advanced features:
 | Twitter Automation | Auto-engagement | Advanced |
 | Task Queue | Multi-machine sync | Advanced |
 
-See [docs/FULL-SYSTEM-REFERENCE.md](docs/FULL-SYSTEM-REFERENCE.md) for the complete feature list.
+See the **Growth Path** section in [QUICK-START.md](QUICK-START.md) for the full progression.
 
 ---
 
 ## Documentation
 
 - **[QUICK-START.md](QUICK-START.md)** - Start here (for Claude Code)
-- **[installer/README.md](installer/README.md)** - Interactive installer docs
-- **[docs/FULL-SYSTEM-REFERENCE.md](docs/FULL-SYSTEM-REFERENCE.md)** - Complete system reference
 - **[CHANGELOG.md](CHANGELOG.md)** - Version history
 
 ---

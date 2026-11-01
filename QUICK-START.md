@@ -1,8 +1,8 @@
 # AI Butler Quick Start Guide
 
-**Version**: v2.5.0
-**Updated**: 2026-04-23
-**Purpose**: Let Claude Code build your complete AI assistant system by reading this guide
+**Version**: v3.0.0
+**Updated**: 2026-06-23
+**Purpose**: Let your coding agent (Claude Code or Codex) build your complete AI assistant system by reading this guide
 
 > **For Claude Pro users**: This guide is split into 3 sessions (~20 messages each). Complete one session per day to stay within usage limits. Each session ends with a working system you can use immediately.
 
@@ -11,6 +11,22 @@
 ## For Claude Code
 
 > **Claude Code**: Execute the Phases assigned to the current Session. Replace all `{{PLACEHOLDER}}` variables (like `{{HOME}}`, `{{USER_NAME}}`, `{{VAULT_PATH}}`) with the user's actual values from Phase 2 answers. After completing each Phase, confirm with the user before proceeding. Ask questions if anything is unclear. Do NOT proceed to the next Session's phases — stop and summarize what was built.
+
+---
+
+## For Codex
+
+> **Codex**: This guide is written with Claude Code as the primary agent, but the system itself is agent-agnostic — Codex can build the same setup. Follow the same Phases; only a few mechanics differ. Substitute as you go:
+>
+> | What the guide says | Codex equivalent |
+> |---|---|
+> | `~/.claude/CLAUDE.md` (global rules) | `~/.codex/AGENTS.md` (global) |
+> | project `CLAUDE.md` | project-root `AGENTS.md` |
+> | `~/.claude/commands/{name}.md` (slash command, Phase 3) | Codex has no slash commands — put the same "load my memory and restore context" instructions directly in `AGENTS.md` |
+> | `claude mcp add <name> -- <cmd>` (Phases 5) | register the server under `[mcp_servers.<name>]` (command + args) in `~/.codex/config.toml` — check the current Codex MCP docs for the exact schema before relying on it |
+> | `claude plugin add … episodic-memory` (Phase 4) | no Codex plugin equivalent — skip it, or expose session search as a tool later (the Phase 12 pattern) |
+>
+> Everything else — directory layout, `memory.md`, QMD, the daily brief, CLIProxyAPI, Hermes Agent, the Telegram bot, LaunchAgents — is identical. Those are plain files, binaries, and OS services, not tied to any one coding agent.
 
 ---
 
@@ -606,14 +622,14 @@ hermes --version
 Edit `~/.hermes/config.yaml`:
 ```yaml
 base_url: http://127.0.0.1:8317/v1
-api_key: magi-proxy-key-2026
+api_key: local-proxy-key
 model: gemini-2.5-flash
 ```
 
 **Test it works:**
 ```bash
 OPENROUTER_BASE_URL=http://127.0.0.1:8317/v1 \
-OPENROUTER_API_KEY=magi-proxy-key-2026 \
+OPENROUTER_API_KEY=local-proxy-key \
 hermes chat -q "What's 2+2?"
 # Should return a response via Gemini
 ```
@@ -743,7 +759,7 @@ tools:
 
 **Test tools:**
 ```bash
-hermes chat -q "Search my notes for anything about IrisGo"
+hermes chat -q "Search my notes for anything about my current project"
 # Should call search_pkm and return results from your vault
 ```
 
@@ -772,7 +788,7 @@ hermes chat -q "Search my notes for anything about IrisGo"
         <key>OPENROUTER_BASE_URL</key>
         <string>http://127.0.0.1:8317/v1</string>
         <key>OPENROUTER_API_KEY</key>
-        <string>magi-proxy-key-2026</string>
+        <string>local-proxy-key</string>
         <key>HOME</key>
         <string>{{HOME}}</string>
     </dict>
@@ -816,7 +832,7 @@ After the basics are running, add progressively:
 | **L1** | Gmail MCP | Email summaries |
 | **L2** | CLIProxyAPI | Route between multiple AI models |
 | **L2** | Investment tracker | Portfolio monitoring |
-| **L3** | Slack bot (KITT) | Team AI access |
+| **L3** | Slack bot | Team AI access |
 | **L3** | Social automation | Twitter/LinkedIn auto-posting |
 | **L4** | Multi-agent system | Agents delegating to agents |
 
@@ -865,13 +881,12 @@ which bun    # For Bun-based services
 
 ## Version History
 
+- **v3.0.0** (2026-06-23): Added Codex support — the guide now works with Claude Code **or** Codex via a substitution table (`CLAUDE.md` ↔ `AGENTS.md`, MCP setup, slash commands). Cleaned up naming and examples for general/public use.
 - **v2.5.0** (2026-04-23): Added Session 4 — Personal EA Telegram Bot (CLIProxyAPI + Hermes Agent + SOUL.md + QMD/Episodic tools + LaunchAgent)
-- **v2.4.0** (2026-04-23): Removed RLabs Memory (redundant with L1 auto-memory; maintenance cost > unique value); replaced with Episodic Memory sync LaunchAgent (30 min interval, prevents index drift in long sessions); updated memory architecture to 3-layer (L1 static, L2 episodic, L3 QMD)
-- **v2.3.0** (2026-03-06): Fixed QMD install (PATH for ~/.bun/bin, step-by-step verification); fixed episodic-memory (fallback instructions); improved RLabs setup (Python version fix, error hints); fixed LaunchAgent node path (homebrew default); added troubleshooting for common first-time failures
-- **v2.1.0** (2026-03-02): Split into 3 sessions for Claude Pro users; added QMD pre-run warning; RLabs updated to use `uv sync`; removed PM2 references; added Prerequisites section
+- **v2.1–v2.4** (2026-02 – 2026-04): Multi-session format for usage-limited plans; 3-layer memory architecture (static + episodic + QMD local RAG); QMD install hardening; troubleshooting and first-run fixes.
 - **v2.0.0** (2026-02-16): Major rewrite — 3-layer memory architecture, CLIProxyAPI, QMD, multi-agent growth path
 - **v1.0.0** (2025-12-23): Initial release
 
 ---
 
-*Designed by Iris (Melchior) for the MAGI System community*
+*Designed by Iris (Melchior) for the MAGI System community. Fork it, adapt it, make it yours.*
