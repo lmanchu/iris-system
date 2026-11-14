@@ -1,7 +1,7 @@
 # MAGI System Snapshot
 
-**版本**: v2026-11-08
-**生成時間**: 2026-11-07T16:30:05.794Z
+**版本**: v2026-11-15
+**生成時間**: 2026-11-14T16:30:05.949Z
 **記憶檔案版本**: 2026-02-18 (v4.0 - 精簡版，三層記憶時代)
 
 ---
@@ -34,7 +34,7 @@ Model Name: Mac Studio
       Memory: 96 GB
 ```
 
-**macOS 版本**: 27.2
+**macOS 版本**: 27.2.1
 
 ---
 
@@ -173,100 +173,100 @@ Model Name: Mac Studio
 **排程**: Unknown
 
 
-### 20. com.lman.ceo-weekly
+### 20. com.lman.cc-dispatch
+
+**檔案**: `com.lman.cc-dispatch.plist`
+**排程**: 每 0 小時
+
+
+### 21. com.lman.ceo-weekly
 
 **檔案**: `com.lman.ceo-weekly.plist`
 **排程**: 每日 10:07
 
 
-### 21. com.lman.chrome-extension-monitor
+### 22. com.lman.chrome-extension-monitor
 
 **檔案**: `com.lman.chrome-extension-monitor.plist`
 **排程**: 每日 21:00
 
 
-### 22. com.lman.claude-code-router
+### 23. com.lman.claude-code-router
 
 **檔案**: `com.lman.claude-code-router.plist`
 **排程**: Unknown
 
 
-### 23. com.lman.claude-eye-broker
+### 24. com.lman.claude-eye-broker
 
 **檔案**: `com.lman.claude-eye-broker.plist`
 **排程**: Unknown
 
 
-### 24. com.lman.cliproxy-error-watcher
+### 25. com.lman.cliproxy-error-watcher
 
 **檔案**: `com.lman.cliproxy-error-watcher.plist`
 **排程**: 每 0 小時
 
 
-### 25. com.lman.cliproxy-update-check
+### 26. com.lman.cliproxy-update-check
 
 **檔案**: `com.lman.cliproxy-update-check.plist`
 **排程**: 每日 10:00
 
 
-### 26. com.lman.cliproxy
+### 27. com.lman.cliproxy
 
 **檔案**: `com.lman.cliproxy.plist`
 **排程**: Unknown
 
 
-### 27. com.lman.content-queue-cleanup
+### 28. com.lman.content-queue-cleanup
 
 **檔案**: `com.lman.content-queue-cleanup.plist`
 **排程**: 每日 3:00
 
 
-### 28. com.lman.dayflow-archiver
+### 29. com.lman.dayflow-archiver
 
 **檔案**: `com.lman.dayflow-archiver.plist`
 **排程**: 每日 3:00
 
 
-### 29. com.lman.delegation-eval-scan
+### 30. com.lman.delegation-eval-scan
 
 **檔案**: `com.lman.delegation-eval-scan.plist`
 **排程**: 每日 3:45
 
 
-### 30. com.lman.dep-upgrade-check
+### 31. com.lman.dep-upgrade-check
 
 **檔案**: `com.lman.dep-upgrade-check.plist`
 **排程**: 每日 9:30
 
 
-### 31. com.lman.embed-proxy
+### 32. com.lman.embed-proxy
 
 **檔案**: `com.lman.embed-proxy.plist`
 **排程**: Unknown
 
 
-### 32. com.lman.episodic-memory-sync
+### 33. com.lman.episodic-memory-sync
 
 **檔案**: `com.lman.episodic-memory-sync.plist`
 **排程**: 每 0 小時
 
 
-### 33. com.lman.gloria-gateway
+### 34. com.lman.gloria-gateway
 
 **檔案**: `com.lman.gloria-gateway.plist`
 **排程**: Unknown
 
 
-### 34. com.lman.gloria-investor-update-reminder
+### 35. com.lman.gloria-investor-update-reminder
 
 **檔案**: `com.lman.gloria-investor-update-reminder.plist`
 **排程**: 每日 10:00
-
-
-### 35. com.lman.google-docs-auto-sync
-
-**檔案**: `com.lman.google-docs-auto-sync.plist`
-**排程**: 每日 9:00
 
 
 ### 36. com.lman.health-anomaly
@@ -305,58 +305,58 @@ Model Name: Mac Studio
 **排程**: 每日 8:57
 
 
-### 42. com.lman.hermes-pipeline
-
-**檔案**: `com.lman.hermes-pipeline.plist`
-**排程**: 每日 6:00
-
-
-### 43. com.lman.hiyori
+### 42. com.lman.hiyori
 
 **檔案**: `com.lman.hiyori.plist`
 **排程**: Unknown
 
 
-### 44. com.lman.inbox-archiver
+### 43. com.lman.inbox-archiver
 
 **檔案**: `com.lman.inbox-archiver.plist`
 **排程**: 每日 5:00
 
 
-### 45. com.lman.infra-health
+### 44. com.lman.infra-health
 
 **檔案**: `com.lman.infra-health.plist`
 **排程**: 每 0 小時
 
 
-### 46. com.lman.iris-app-monitor
+### 45. com.lman.iris-app-monitor
 
 **檔案**: `com.lman.iris-app-monitor.plist`
 **排程**: Unknown
 
 
-### 47. com.lman.iris-reminder
+### 46. com.lman.iris-reminder
 
 **檔案**: `com.lman.iris-reminder.plist`
 **排程**: 每日 9:30
 
 
-### 48. com.lman.iris-snapshot
+### 47. com.lman.iris-snapshot
 
 **檔案**: `com.lman.iris-snapshot.plist`
 **排程**: 每日 0:30
 
 
-### 49. com.lman.iris-sync
+### 48. com.lman.iris-sync
 
 **檔案**: `com.lman.iris-sync.plist`
 **排程**: 每日 0:00
 
 
-### 50. com.lman.iris-task-watcher
+### 49. com.lman.iris-task-watcher
 
 **檔案**: `com.lman.iris-task-watcher.plist`
 **排程**: Unknown
+
+
+### 50. com.lman.iris-verify
+
+**檔案**: `com.lman.iris-verify.plist`
+**排程**: 每 0 小時
 
 
 ### 51. com.lman.irisgo-docs-sync
@@ -503,82 +503,82 @@ Model Name: Mac Studio
 **排程**: Unknown
 
 
-### 75. com.lman.news-pipeline
-
-**檔案**: `com.lman.news-pipeline.plist`
-**排程**: 每日 8:00
-
-
-### 76. com.lman.notchyinput
+### 75. com.lman.notchyinput
 
 **檔案**: `com.lman.notchyinput.plist`
 **排程**: Unknown
 
 
-### 77. com.lman.ollama-zombie-check
+### 76. com.lman.ollama-zombie-check
 
 **檔案**: `com.lman.ollama-zombie-check.plist`
 **排程**: 每 0 小時
 
 
-### 78. com.lman.openwiki-ingest
+### 77. com.lman.openwiki-ingest
 
 **檔案**: `com.lman.openwiki-ingest.plist`
 **排程**: 每日 8:00
 
 
-### 79. com.lman.orpheus-api
-
-**檔案**: `com.lman.orpheus-api.plist`
-**排程**: Unknown
-
-
-### 80. com.lman.orpheus-doctor
+### 78. com.lman.orpheus-doctor
 
 **檔案**: `com.lman.orpheus-doctor.plist`
 **排程**: 每日 9:30
 
 
-### 81. com.lman.ow-tunnel-lmaninux-irisgo-next
+### 79. com.lman.ow-tunnel-lmaninux-irisgo-next
 
 **檔案**: `com.lman.ow-tunnel-lmaninux-irisgo-next.plist`
 **排程**: Unknown
 
 
-### 82. com.lman.ow-tunnel-lmaninux
+### 80. com.lman.ow-tunnel-lmaninux
 
 **檔案**: `com.lman.ow-tunnel-lmaninux.plist`
 **排程**: Unknown
 
 
-### 83. com.lman.partnerships-sync
+### 81. com.lman.partnerships-sync
 
 **檔案**: `com.lman.partnerships-sync.plist`
 **排程**: 每日 9:00
 
 
-### 84. com.lman.persona-updater
+### 82. com.lman.persona-updater
 
 **檔案**: `com.lman.persona-updater.plist`
 **排程**: 每日 1:30
 
 
-### 85. com.lman.polyclaw-cfo
+### 83. com.lman.polyclaw-cfo
 
 **檔案**: `com.lman.polyclaw-cfo.plist`
 **排程**: 每日 9:00
 
 
-### 86. com.lman.qmd-update
+### 84. com.lman.qmd-update
 
 **檔案**: `com.lman.qmd-update.plist`
 **排程**: 每 72 小時
 
 
-### 87. com.lman.reddit-reply
+### 85. com.lman.reddit-reply
 
 **檔案**: `com.lman.reddit-reply.plist`
 **排程**: 每日 10:00
+
+
+### 86. com.lman.register-judge
+
+**檔案**: `com.lman.register-judge.plist`
+**排程**: 每 0 小時
+
+
+### 87. com.lman.register-sweep
+
+**檔案**: `com.lman.register-sweep.plist`
+**排程**: 每日 7:40
 
 
 ### 88. com.lman.scheduled-tasks-updater
@@ -1594,6 +1594,6 @@ ollama pull gpt-oss:20b
 
 ---
 
-*生成時間: 2026-11-07T16:30:05.794Z*
+*生成時間: 2026-11-14T16:30:05.949Z*
 *生成器版本: v1.0.0*
 *Iris System - Iris (Melchior)*
